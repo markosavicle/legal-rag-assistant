@@ -1,0 +1,4 @@
+{"question": "Koliko najmanje traje godišnji odmor?", "expected": "20 radnih dana"}
+{"question": "Koliko najduže može da traje probni rad?", "expected": "šest meseci"}
+{"question": "Koliko časova nedeljno iznosi puno radno vreme?", "expected": "40 časova nedeljno"}
+{"question": "Koliko najviše može da traje prekovremeni rad nedeljno?", "expected": "osam časova nedeljno"}
