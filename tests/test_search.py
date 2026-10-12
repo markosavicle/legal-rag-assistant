@@ -26,8 +26,8 @@ def test_rrf_scores_are_descending():
     assert scores == sorted(scores, reverse=True)
 
 
-def test_or_tsquery_drops_short_words_and_duplicates():
-    assert build_or_tsquery("Koliko traje godišnji odmor i odmor?") == "koliko | traje | godišnji | odmor"
+def test_or_tsquery_drops_short_words_question_words_and_duplicates():
+    assert build_or_tsquery("Koliko traje godišnji odmor i odmor?") == "traj | godisnj | odmor"
 
 
 def test_or_tsquery_empty():
@@ -40,3 +40,29 @@ def test_prompt_numbers_sources():
     assert "[1] (zakon.pdf, page 1)" in user
     assert "[2] (zakon.pdf, page 1)" in user
     assert user.endswith("Question: Pitanje?")
+
+
+def test_or_tsquery_keeps_short_numbers():
+    assert build_or_tsquery("Šta propisuje član 62?") == "propis | clan | 62"
+
+
+def test_article_numbers_in_any_grammatical_case_and_script():
+    from app.search import article_numbers
+    assert article_numbers("Šta propisuje član 62?") == ["62"]
+    assert article_numbers("Šta je uređeno članom 36 i člana 2a?") == ["36", "2a"]
+    assert article_numbers("Шта каже члан 184?") == ["184"]
+    assert article_numbers("Koliko traje godišnji odmor?") == []
+
+
+def test_or_tsquery_matches_any_grammatical_form():
+    assert build_or_tsquery("isplata zarade") == build_or_tsquery("isplatu zaradom")
+
+
+def test_latin_question_gets_latin_answer():
+    from app.rag import match_script
+    assert match_script("Koliki je minuli rad?", "Najmanje 0,4% за сваку пуну годину [1].") == "Najmanje 0,4% za svaku punu godinu [1]."
+
+
+def test_cyrillic_question_keeps_answer_as_is():
+    from app.rag import match_script
+    assert match_script("Колики је минули рад?", "Најмање 0,4% [1].") == "Најмање 0,4% [1]."
