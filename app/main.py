@@ -4,16 +4,22 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
 
-from fastapi import FastAPI, HTTPException, Query, UploadFile
+import openai
+from fastapi import FastAPI, HTTPException, Query, Request, UploadFile
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
 from app import db, rag
 from app.config import settings
-from app.ingest import SUPPORTED, ingest_file
-from app.llm import embed_query
+from pypdf.errors import PdfReadError
+
+from app.ingest import SUPPORTED, DuplicateDocumentError, ingest_file
+from app.llm import embed_query, is_daily_quota, provider_name
 from app.search import search
 
 Mode = Literal["vector", "keyword", "hybrid"]
+
+STATIC_DIR = Path(__file__).parent / "static"
 
 
 @asynccontextmanager
@@ -25,10 +31,41 @@ async def lifespan(_: FastAPI):
 app = FastAPI(title="Legal RAG Assistant", lifespan=lifespan)
 
 
+@app.exception_handler(openai.APIError)
+def ai_provider_error(_: Request, exc: openai.APIError):
+    # Surface provider problems (bad key, rate limit, unknown model) instead of a bare 500.
+    status = getattr(exc, "status_code", None) or 502
+    if is_daily_quota(exc):
+        detail = (f"The free daily quota for this model is used up (it resets within a day). "
+                  f"Set CHAT_MODEL in .env to another model, e.g. a '-lite' one, and restart. Details: {exc.message}")
+    else:
+        detail = f"AI provider error ({status}): {exc.message}"
+    return JSONResponse(status_code=502, content={"detail": detail})
+
+
+@app.get("/", include_in_schema=False)
+def web_ui():
+    return FileResponse(STATIC_DIR / "index.html")
+
+
+@app.get("/info")
+def info():
+    return {
+        "provider": provider_name(),
+        "chat_model": settings.chat_model,
+        "embedding_model": settings.embedding_model,
+        "top_k": settings.top_k,
+        "supported_files": sorted(SUPPORTED),
+    }
+
+
 class AskRequest(BaseModel):
     question: str = Field(min_length=3)
     k: int = Field(default=settings.top_k, ge=1, le=20)
-    mode: Mode = "hybrid"
+    # Semantic search scored best on eval/questions.jsonl (see README), so it is the default.
+    mode: Mode = "vector"
+    # Limit the question to these documents, e.g. one of two contracts. None or empty = all documents.
+    documents: list[int] | None = None
 
 
 @app.get("/health")
@@ -50,8 +87,10 @@ def upload_document(file: UploadFile):
         try:
             with db.connect() as conn:
                 return ingest_file(conn, path, file.filename)
-        except ValueError as e:
-            raise HTTPException(422, str(e))
+        except DuplicateDocumentError as e:
+            raise HTTPException(409, str(e))
+        except (ValueError, PdfReadError) as e:
+            raise HTTPException(422, f"Could not read {file.filename}: {e}")
 
 
 @app.get("/documents")
@@ -72,13 +111,18 @@ def delete_document(document_id: int):
 
 
 @app.get("/search")
-def search_chunks(q: str = Query(min_length=2), k: int = Query(settings.top_k, ge=1, le=50), mode: Mode = "hybrid"):
+def search_chunks(
+    q: str = Query(min_length=2),
+    k: int = Query(settings.top_k, ge=1, le=50),
+    mode: Mode = "vector",
+    documents: list[int] | None = Query(None, description="Document ids to search (repeat the parameter); all if omitted"),
+):
     with db.connect() as conn:
         query_embedding = embed_query(conn, q) if mode != "keyword" else None
-        return search(conn, q, query_embedding, k, mode)
+        return search(conn, q, query_embedding, k, mode, documents)
 
 
 @app.post("/ask")
 def ask(request: AskRequest):
     with db.connect() as conn:
-        return rag.answer(conn, request.question, request.k, request.mode)
+        return rag.answer(conn, request.question, request.k, request.mode, request.documents or None)
