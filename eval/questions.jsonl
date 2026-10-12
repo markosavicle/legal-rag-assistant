@@ -1,4 +1,28 @@
-{"question": "Koliko najmanje traje godišnji odmor?", "expected": "20 radnih dana"}
-{"question": "Koliko najduže može da traje probni rad?", "expected": "šest meseci"}
-{"question": "Koliko časova nedeljno iznosi puno radno vreme?", "expected": "40 časova nedeljno"}
-{"question": "Koliko najviše može da traje prekovremeni rad nedeljno?", "expected": "osam časova nedeljno"}
+{"question": "Koliko najmanje traje godišnji odmor?", "expected": "najmanje 20 radnih dana", "answer": "Najmanje 20 radnih dana u kalendarskoj godini."}
+{"question": "Koliko najduže može da traje probni rad?", "expected": "Probni rad može da traje najduže šest meseci", "answer": "Najduže šest meseci."}
+{"question": "Koliko časova nedeljno iznosi puno radno vreme?", "expected": "40 časova nedeljno", "answer": "40 časova nedeljno."}
+{"question": "Koliko najviše može da traje prekovremeni rad nedeljno?", "expected": "osam časova nedeljno", "answer": "Najviše osam časova nedeljno."}
+{"question": "Koliko traje pauza u toku rada za zaposlenog koji radi šest časova dnevno?", "expected": "najmanje 30 minuta", "answer": "Najmanje 30 minuta."}
+{"question": "Koliko traje odmor između dva radna dana?", "expected": "najmanje 12 časova neprekidno", "answer": "Najmanje 12 časova neprekidno u okviru 24 časa (najmanje 11 časova za zaposlene iz člana 57)."}
+{"question": "Koliko traje nedeljni odmor?", "expected": "nedeljni odmor u trajanju od najmanje 24 časa", "answer": "Najmanje 24 časa neprekidno, kojem se dodaje dnevni odmor."}
+{"question": "Koliko ukupno traju porodiljsko odsustvo i odsustvo radi nege deteta?", "expected": "u ukupnom trajanju od 365 dana", "answer": "Ukupno 365 dana."}
+{"question": "Kada zaposlena žena može da počne porodiljsko odsustvo?", "expected": "najranije 45 dana", "answer": "Najranije 45 dana, a obavezno 28 dana pre vremena određenog za porođaj."}
+{"question": "Koji rad se smatra radom noću?", "expected": "od 22,00 časa do 6,00 časova", "answer": "Rad od 22 časa do 6 časova narednog dana."}
+{"question": "Koliko je uvećanje zarade za rad na dan praznika?", "expected": "najmanje 110% od osnovice", "answer": "Najmanje 110% od osnovice."}
+{"question": "Koliko iznosi uvećanje zarade za minuli rad?", "expected": "0,4% od osnovice", "answer": "Najmanje 0,4% od osnovice za svaku punu godinu rada."}
+{"question": "Koliko najduže može da traje ugovor o radu na određeno vreme?", "expected": "ne može biti duži od 24 meseca", "answer": "Najduže 24 meseca, sa prekidima ili bez prekida (uz zakonske izuzetke)."}
+{"question": "Do kada poslodavac mora da isplati zaradu za prethodni mesec?", "expected": "do kraja tekućeg meseca za prethodni mesec", "answer": "Najkasnije do kraja tekućeg meseca za prethodni mesec."}
+{"question": "Kolika je otpremnina pri odlasku u penziju?", "expected": "otpremninu pri odlasku u penziju", "answer": "Najmanje u visini dve prosečne zarade."}
+{"question": "Koliko dana plaćenog odsustva zaposleni dobija zbog smrti člana uže porodice?", "expected": "pet radnih dana zbog smrti člana uže porodice", "answer": "Pet radnih dana."}
+{"question": "Koliki je otkazni rok ako se ugovor otkaže za vreme probnog rada?", "expected": "ne može biti kraći od pet radnih dana", "answer": "Ne kraći od pet radnih dana."}
+{"question": "U kom roku poslodavac može da da otkaz nakon što sazna za razlog?", "expected": "šest meseci od dana saznanja", "answer": "U roku od šest meseci od dana saznanja za činjenice, odnosno godinu dana od dana nastupanja činjenica."}
+{"question": "Koliko najduže može da važi zabrana konkurencije posle prestanka radnog odnosa?", "expected": "ne može da bude duži od dve godine", "answer": "Najduže dve godine po prestanku radnog odnosa."}
+{"question": "Da li zaposleni mlađi od 18 godina sme da radi prekovremeno?", "expected": "Zabranjen je prekovremeni rad i preraspodela radnog vremena zaposlenog koji je mlađi od 18", "answer": "Ne, prekovremeni rad zaposlenog mlađeg od 18 godina je zabranjen."}
+{"question": "Колико по правилу траје радна недеља?", "expected": "Radna nedelja traje, po pravilu, pet radnih dana", "answer": "По правилу пет радних дана."}
+{"question": "Шта је забрана конкуренције?", "expected": "u daljem tekstu: zabrana konkurencije", "answer": "Забрана да запослени без сагласности послодавца ради за свој или туђи рачун послове из делатности коју обавља послодавац."}
+{"question": "Šta propisuje član 62?", "expected": "Član 62.", "answer": "Rad od 22 časa do 6 časova narednog dana smatra se radom noću; uređuje i obaveze poslodavca prema zaposlenima koji rade noću."}
+{"question": "Šta kaže član 184 Zakona o radu?", "expected": "Član 184.", "answer": "Rokove zastarelosti za otkaz: šest meseci od dana saznanja za činjenice, odnosno godinu dana od dana nastupanja činjenica."}
+{"question": "Šta je uređeno članom 36?", "expected": "Član 36.", "answer": "Probni rad: može se ugovoriti, traje najduže šest meseci, a otkazni rok tokom probnog rada ne može biti kraći od pet radnih dana."}
+{"question": "Koja je kazna za prebrzu vožnju?", "answer": null}
+{"question": "Kolika je stopa PDV-a u Srbiji?", "answer": null}
+{"question": "Kako se registruje automobil?", "answer": null}
