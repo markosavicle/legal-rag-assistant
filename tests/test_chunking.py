@@ -68,4 +68,30 @@ def test_article_mention_inside_sentence_does_not_split():
 
 def test_chunk_document_never_mixes_articles():
     chunks = chunk_document(LAW, size=500, overlap=50)
-    assert all(c.count("Član") <= 1 for c in chunks)
+    assert all(c.text.count("Član") <= 1 for c in chunks)
+
+
+def test_heading_with_footnote_asterisk_still_splits():
+    text = "Član 110.\nZarada se isplaćuje mesečno.\n3. Minimalna zarada\nČlan 111.*\nZaposleni ima pravo na minimalnu zaradu."
+    assert [p.splitlines()[0] for p in split_articles(text)] == ["Član 110.", "Član 111.*"]
+
+
+def test_long_article_continuations_carry_the_heading():
+    article = "Član 7.\n" + " ".join(f"Rečenica broj {i}." for i in range(80))
+    chunks = chunk_document(article, size=200, overlap=40)
+    assert len(chunks) > 2
+    assert chunks[0].text.startswith("Član 7.\n")
+    assert all(c.text.startswith("Član 7. (nastavak)\n") for c in chunks[1:])
+
+
+def test_cyrillic_continuation_label():
+    article = "Члан 7.\n" + " ".join(f"Реченица број {i}." for i in range(80))
+    chunks = chunk_document(article, size=200, overlap=40)
+    assert chunks[1].text.startswith("Члан 7. (наставак)\n")
+
+
+def test_chunk_start_offsets_point_into_the_text():
+    from app.chunking import normalize
+    text = normalize(LAW)
+    for chunk in chunk_document(LAW, size=500, overlap=50):
+        assert text[chunk.start:chunk.start + len(chunk.text)] == chunk.text
