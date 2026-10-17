@@ -1,0 +1,11 @@
+# Optional override: also attach n8n to an existing reverse-proxy network (e.g. Nginx Proxy
+# Manager on `nginx-net`), so the proxy can serve it over HTTPS as http://n8n:5678.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.nginx-net.yml up -d
+services:
+  n8n:
+    networks: [default, nginx-net]
+
+networks:
+  nginx-net:
+    external: true

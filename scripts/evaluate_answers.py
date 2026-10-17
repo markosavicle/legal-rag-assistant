@@ -22,6 +22,7 @@ import openai
 
 from app import db, llm, rag
 from app.config import settings
+from app.rag import cited_numbers
 from scripts.evaluate import comparable, document_ids
 
 JUDGE_IN_SCOPE = """You grade answers from a question-answering system about Serbian law.
@@ -55,11 +56,6 @@ def parse_verdict(text: str) -> tuple[bool, str]:
         return bool(verdict["correct"]), str(verdict.get("reason", ""))
     except (json.JSONDecodeError, KeyError, TypeError):
         return False, f"Judge reply could not be parsed: {text!r:.120}"
-
-
-def cited_numbers(answer: str) -> set[int]:
-    """Passage numbers cited as [1], [1][3] or [1, 3]."""
-    return {int(n) for group in re.findall(r"\[(\d+(?:\s*,\s*\d+)*)\]", answer) for n in re.findall(r"\d+", group)}
 
 
 def cites_expected(answer: str, sources: list[dict], expected: str) -> bool:

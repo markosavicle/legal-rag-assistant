@@ -1,0 +1,30 @@
+name: n8n node
+
+on:
+  pull_request:
+    paths: ['n8n-nodes-legal-rag/**', '.github/workflows/n8n-node.yml']
+  push:
+    branches: [main]
+    paths: ['n8n-nodes-legal-rag/**', '.github/workflows/n8n-node.yml']
+
+concurrency:
+  group: n8n-node-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: n8n-nodes-legal-rag
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: n8n-nodes-legal-rag/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test

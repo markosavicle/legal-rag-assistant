@@ -40,9 +40,9 @@ import openai
 
 from app import db, llm, rag
 from app.config import settings
+from app.rag import cited_numbers, is_refusal
 from app.search import MODES, search
 from scripts.evaluate import comparable
-from scripts.evaluate_answers import cited_numbers
 
 CATEGORIES = ("factual", "cyrillic", "article", "contract", "comparison", "conflict", "ambiguous",
               "out_of_scope", "false_premise")
@@ -163,18 +163,8 @@ def unsupported_numbers(answer: str, question: str, sources: list[dict]) -> list
     return sorted(numbers_in(strip_citations(answer)) - supported, key=int)
 
 
-# Phrases the system uses to say the documents do not answer the question (Serbian and English).
-_ABSTAIN = re.compile(
-    r"(nisam|nismo|ne mogu|ne mogao|ne mogla|ne mozemo|nije moguce)\b.{0,40}\b(pronac|pronas|nac|nas|naci|da odgovor|pronadj)"
-    r"|(nije|nisu)\s+(pronadjen|naveden|navedeno|navedena|pomenut|sadrzan)"
-    r"|(dokument|kontekst|odlom|pasus|tekst|ugovor|zakon|aneks)\w*\b.{0,60}\b(ne sadrz|ne navod|ne pominj|ne spominj|ne propisuj|ne uredjuj|ne regulis|ne daje informac|nema (podat|informac|odredb))"
-    r"|nema (podataka|informacija|odredb)"
-    r"|could not find|couldn't find|cannot find|can't find|not (found|mentioned|covered|specified)|does not (contain|mention|specify)|no information"
-)
-
-
-def abstained(answer: str) -> bool:
-    return bool(_ABSTAIN.search(fold(answer)))
+# The API flags refusals with the same rule (answers without "answered"), so both agree.
+abstained = is_refusal
 
 
 def rule_checks(case: dict, answer: str, sources: list[dict]) -> dict:

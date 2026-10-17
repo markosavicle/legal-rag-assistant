@@ -31,5 +31,9 @@ class Settings:
     chunk_overlap: int = field(default_factory=lambda: int(_env("CHUNK_OVERLAP", "150")))
     top_k: int = field(default_factory=lambda: int(_env("TOP_K", "5")))
 
+    # When set, every API call must send it in the X-API-Key header (the web page asks for it once).
+    # Leave empty for local use; set it before exposing the API to n8n or anything on a network.
+    api_key: str | None = field(default_factory=lambda: _env("API_KEY"))
+
 
 settings = Settings()

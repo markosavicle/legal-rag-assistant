@@ -1,0 +1,168 @@
+{
+  "name": "Legal RAG: email question → draft answer → Slack review → reply",
+  "nodes": [
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f01",
+      "name": "New email (IMAP)",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.2,
+      "position": [0, 0],
+      "parameters": {
+        "mailbox": "INBOX",
+        "postProcessAction": "read",
+        "format": "simple",
+        "options": {}
+      },
+      "credentials": {
+        "imap": { "id": "", "name": "Legal inbox (IMAP)" }
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f02",
+      "name": "Draft answer",
+      "type": "n8n-nodes-legal-rag.legalRag",
+      "typeVersion": 1,
+      "position": [240, 0],
+      "parameters": {
+        "resource": "question",
+        "operation": "ask",
+        "question": "={{ [$json.subject, $json.textPlain].filter(Boolean).join('\\n\\n').slice(0, 2000) }}",
+        "documents": [],
+        "simplify": true,
+        "options": {}
+      },
+      "credentials": {
+        "legalRagApi": { "id": "", "name": "Legal RAG API" }
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f03",
+      "name": "Found in the documents?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [480, 0],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict", "version": 3 },
+          "conditions": [
+            {
+              "id": "c1f0e7a2-0d3b-4c5e-9f61-2a3b4c5d6e01",
+              "leftValue": "={{ $json.answered }}",
+              "rightValue": "",
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f04",
+      "name": "Ask reviewer in Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [720, -120],
+      "webhookId": "9d4f2e1a-3b5c-4d6e-8f70-3b4c5d6e7f01",
+      "parameters": {
+        "operation": "sendAndWait",
+        "select": "channel",
+        "channelId": { "__rl": true, "mode": "name", "value": "#legal-review" },
+        "message": "=*Question from {{ $('New email (IMAP)').item.json.from }}*\n>{{ $('New email (IMAP)').item.json.subject }}\n\n*Draft answer*\n{{ $json.answer }}\n\n*Sources*\n```{{ $json.citationsText }}```\n\nSend this reply?",
+        "responseType": "approval",
+        "approvalOptions": {
+          "values": { "approvalType": "double", "approveLabel": "Send reply", "disapproveLabel": "Don't send" }
+        },
+        "options": {
+          "limitWaitTime": { "values": { "limitType": "afterTimeInterval", "resumeAmount": 2, "resumeUnit": "days" } }
+        }
+      },
+      "credentials": {
+        "slackApi": { "id": "", "name": "Slack" }
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f05",
+      "name": "Approved?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [960, -120],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "loose", "version": 3 },
+          "conditions": [
+            {
+              "id": "c1f0e7a2-0d3b-4c5e-9f61-2a3b4c5d6e02",
+              "leftValue": "={{ $json.data.approved }}",
+              "rightValue": "",
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f06",
+      "name": "Reply to sender",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1200, -200],
+      "parameters": {
+        "fromEmail": "legal@example.com",
+        "toEmail": "={{ $('New email (IMAP)').item.json.from }}",
+        "subject": "=Re: {{ $('New email (IMAP)').item.json.subject }}",
+        "emailFormat": "text",
+        "text": "={{ $('Draft answer').item.json.answer }}\n\nSources:\n{{ $('Draft answer').item.json.citationsText }}\n\n--\nThis answer was drafted from our documents and checked by a colleague. It is not legal advice.",
+        "options": {}
+      },
+      "credentials": {
+        "smtp": { "id": "", "name": "Legal inbox (SMTP)" }
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f07",
+      "name": "Escalate in Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.7,
+      "position": [720, 120],
+      "webhookId": "9d4f2e1a-3b5c-4d6e-8f70-3b4c5d6e7f02",
+      "parameters": {
+        "select": "channel",
+        "channelId": { "__rl": true, "mode": "name", "value": "#legal-escalations" },
+        "text": "=:warning: No answer in our documents for a question from {{ $('New email (IMAP)').item.json.from }}\n>{{ $('New email (IMAP)').item.json.subject }}\n\nThe assistant said: {{ $json.answer }}\nPlease answer it directly.",
+        "otherOptions": {}
+      },
+      "credentials": {
+        "slackApi": { "id": "", "name": "Slack" }
+      }
+    },
+    {
+      "id": "7c2b1d63-5a0f-4e8b-b122-1b2c3d4e5f08",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-60, -420],
+      "parameters": {
+        "width": 760,
+        "height": 260,
+        "content": "## Email → draft → human review → reply\nA question arrives by email. Legal RAG drafts an answer with sources.\n\n- **Found in the documents** → a reviewer gets the draft in `#legal-review` with *Send reply / Don't send* buttons. Only an approved draft is emailed back.\n- **Not found** (or only partly answered) → posted to `#legal-escalations` for a person to answer.\n\nLegal answers never go out unreviewed: the model drafts, a person decides. The wait times out after 2 days."
+      }
+    }
+  ],
+  "connections": {
+    "New email (IMAP)": { "main": [[{ "node": "Draft answer", "type": "main", "index": 0 }]] },
+    "Draft answer": { "main": [[{ "node": "Found in the documents?", "type": "main", "index": 0 }]] },
+    "Found in the documents?": {
+      "main": [
+        [{ "node": "Ask reviewer in Slack", "type": "main", "index": 0 }],
+        [{ "node": "Escalate in Slack", "type": "main", "index": 0 }]
+      ]
+    },
+    "Ask reviewer in Slack": { "main": [[{ "node": "Approved?", "type": "main", "index": 0 }]] },
+    "Approved?": { "main": [[{ "node": "Reply to sender", "type": "main", "index": 0 }], []] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}

@@ -1,0 +1,45 @@
+# Publishes n8n-nodes-legal-rag to npm with a provenance statement, which n8n requires for
+# community nodes. Triggered by a tag like n8n-nodes-legal-rag-v0.1.0 (must match package.json).
+#
+# One-time setup, either:
+#   A. npm Trusted Publishing (no secret): on npmjs.com, package settings → Trusted Publishers →
+#      GitHub Actions, repository markosavicle/legal-rag-assistant, workflow n8n-node-publish.yml.
+#      (The first version has to be published once by hand or with a token to create the package.)
+#   B. A granular npm token with publish rights, saved as the NPM_TOKEN repository secret.
+name: Publish n8n node
+
+on:
+  push:
+    tags: ['n8n-nodes-legal-rag-v*']
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # npm provenance / trusted publishing
+      contents: read
+    defaults:
+      run:
+        working-directory: n8n-nodes-legal-rag
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          cache: npm
+          cache-dependency-path: n8n-nodes-legal-rag/package-lock.json
+      - name: Tag matches package version
+        run: |
+          version=$(node -p "require('./package.json').version")
+          [ "${GITHUB_REF_NAME}" = "n8n-nodes-legal-rag-v${version}" ] || { echo "Tag ${GITHUB_REF_NAME} != v${version}"; exit 1; }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - name: Publish
+        # RELEASE_MODE lets the n8n-node prerelease guard through.
+        run: npm publish --provenance --access public
+        env:
+          RELEASE_MODE: '1'
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -19,6 +19,37 @@ Only if no passage is relevant, say that you could not find the answer in the do
 Answer in the same language and script (Latin or Cyrillic) as the question, even if the passages use the other script; this includes saying that you could not find the answer."""
 
 CYRILLIC = re.compile(r"[Ѐ-ӿ]")
+CITATION = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
+
+# Ways the model says the documents do not answer the question (Serbian and English), matched on
+# Latin, lower-case text without diacritics. Partial answers ("the address is not given") count too:
+# a caller routing on `answered` should send those to a person.
+_FOLD = str.maketrans({"č": "c", "ć": "c", "š": "s", "ž": "z", "đ": "dj"})
+REFUSAL = re.compile(
+    r"(nisam|nismo|ne mogu|ne mogao|ne mogla|ne mozemo|nije moguce)\b.{0,40}\b(pronac|pronas|nac|nas|naci|da odgovor|pronadj)"
+    r"|(nije|nisu)\s+(pronadjen|naveden|navedeno|navedena|pomenut|sadrzan)"
+    r"|(dokument|kontekst|odlom|pasus|tekst|ugovor|zakon|aneks)\w*\b.{0,60}\b(ne sadrz|ne navod|ne pominj|ne spominj|ne propisuj|ne uredjuj|ne regulis|ne daje informac|nema (podat|informac|odredb))"
+    r"|nema (podataka|informacija|odredb)"
+    r"|could not find|couldn't find|cannot find|can't find|not (found|mentioned|covered|specified)|does not (contain|mention|specify)|no information"
+)
+
+
+def cited_numbers(answer: str) -> set[int]:
+    """Passage numbers cited as [1], [1][3] or [1, 3]."""
+    return {int(n) for group in CITATION.findall(answer) for n in re.findall(r"\d+", group)}
+
+
+def is_refusal(answer: str) -> bool:
+    return bool(REFUSAL.search(" ".join(to_latin(answer).lower().split()).translate(_FOLD)))
+
+
+def answer_status(answer: str, source_count: int) -> tuple[bool, list[int]]:
+    """Whether the answer answers the question, and which existing passages it cites.
+
+    Answered means it cites at least one retrieved passage and does not say the answer is missing.
+    """
+    citations = sorted(n for n in cited_numbers(answer) if 1 <= n <= source_count)
+    return bool(citations) and not is_refusal(answer), citations
 
 
 def match_script(question: str, answer: str) -> str:
@@ -55,9 +86,12 @@ def answer(conn, question: str, k: int, mode: str = "vector", documents: list[in
         text, usage = llm.chat(build_messages(question, hits))
         text = match_script(question, text)
     finished = time.perf_counter()
+    answered, citations = answer_status(text, len(hits))
 
     return {
         "answer": text,
+        "answered": answered,
+        "citations": citations,
         "sources": [
             {"n": i, "source": format_source(h), "chunk_id": h.chunk_id, "score": round(h.score, 4), "text": h.content}
             for i, h in enumerate(hits, start=1)

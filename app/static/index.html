@@ -140,8 +140,19 @@ function escapeHtml(text) {
   return String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
-async function api(path, options = {}) {
-  const response = await fetch(path, options);
+// When the server sets API_KEY, every call needs it: ask once, keep it in this browser.
+function storedKey() { try { return localStorage.getItem("apiKey") || ""; } catch { return ""; } }
+
+async function api(path, options = {}, retried = false) {
+  const headers = { ...(options.headers || {}), ...(storedKey() ? { "X-API-Key": storedKey() } : {}) };
+  const response = await fetch(path, { ...options, headers });
+  if (response.status === 401 && !retried) {
+    const key = prompt("This server needs an API key:");
+    if (key) {
+      try { localStorage.setItem("apiKey", key.trim()); } catch {}
+      return api(path, options, true);
+    }
+  }
   if (response.status === 204) return null;
   const body = await response.json().catch(() => ({}));
   if (!response.ok) {

@@ -1,0 +1,18 @@
+# Server override: keep Postgres private, restart on boot, and join the reverse-proxy network so
+# n8n (also on nginx-net) reaches the API as http://legal-rag-api:8000.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build
+services:
+  db:
+    container_name: legal-rag-db
+    restart: always
+    ports: !reset []
+
+  api:
+    container_name: legal-rag-api
+    restart: always
+    networks: [default, nginx-net]
+
+networks:
+  nginx-net:
+    external: true
