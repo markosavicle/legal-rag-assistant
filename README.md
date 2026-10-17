@@ -2,7 +2,7 @@
 
 A question-answering app over legal documents (laws, contracts, regulations) built on Retrieval-Augmented Generation. Upload PDF, DOCX or TXT files, ask questions in Serbian (Latin or Cyrillic) or English, and get answers grounded in the documents with numbered citations to the source passages.
 
-**Stack:** Python, FastAPI, PostgreSQL + pgvector, any OpenAI-compatible LLM API (Google Gemini, OpenAI, Azure OpenAI, Ollama), Docker
+**Stack:** Python, FastAPI, PostgreSQL + pgvector, any OpenAI-compatible LLM API (Google Gemini, OpenAI, Azure OpenAI, Ollama), Docker, n8n (custom TypeScript node)
 
 ## How it works
 
@@ -154,6 +154,52 @@ The original smaller evaluation (`eval/questions.jsonl` with `scripts/evaluate.p
 - A light Serbian stemmer took hybrid Hit@5 from 0.92 to 0.96.
 - Remaining keyword misses are vocabulary mismatches, which is why semantic search is the default.
 
+## n8n integration
+
+The assistant also runs inside [n8n](https://n8n.io/) workflows through a custom community node, [`n8n-nodes-legal-rag`](n8n-nodes-legal-rag/) (TypeScript).
+
+- **Node:** Ask (answer + `answered` flag + only the cited passages), Search passages, and Upload / list / delete documents, with a document dropdown loaded from the API. It also works as an AI Agent tool. It passes n8n's strict community-node lint, so it qualifies for n8n Cloud verification. Details are in its [README](n8n-nodes-legal-rag/README.md).
+- **API changes it needed:**
+  - `/ask` returns `answered` and `citations`, so workflows can route unanswered questions to a person without parsing text. The evaluation harness uses the same refusal rule.
+  - An optional `API_KEY` (sent as `X-API-Key`) protects the API once something on the network calls it.
+- **Example workflows** ([`n8n-nodes-legal-rag/examples/`](n8n-nodes-legal-rag/examples/)), tested on n8n 2.43.7:
+  - **Q&A webhook:** POST a question, get a cited answer as JSON; errors return 422.
+  - **Email → draft → Slack review → reply:** an approved draft is emailed back; an unanswered question goes to an escalation channel.
+  - **Contract intake form → checklist → Google Sheet:** an uploaded contract is indexed and its key terms are extracted into a row.
+
+### Self-hosted n8n
+
+[`deploy/n8n/`](deploy/n8n/) runs n8n 2.43.7 (pinned) with Postgres in Docker. Credentials are encrypted with a generated `N8N_ENCRYPTION_KEY`, and community nodes persist in the `n8n-data` volume. It runs on my Ubuntu 26.04 home server next to the other services there, on the same `nginx-net` network as Nginx Proxy Manager:
+
+```bash
+cd deploy/n8n && cp .env.example .env   # fill in the two secrets: openssl rand -hex 32
+docker compose -f docker-compose.yml -f docker-compose.nginx-net.yml up -d   # or just docker-compose.yml
+```
+
+n8n reaches the RAG API at `http://host.docker.internal:8000` when both run on one machine. Set `API_KEY` in the API's `.env` and put the same key into the node's credential.
+
+### Node, workflow, or push back: what I'd do differently
+
+**Why this is a node.** Every workflow that talks to this API needs the same things: the auth header, multipart upload from binary data, a re-upload that doesn't fail, citations matched to passages, and a reliable "was this answered?" signal. With the HTTP Request node, each workflow would rebuild that logic, slightly differently each time. A node does it once, gives a dropdown of documents instead of raw ids, and becomes an AI Agent tool for free. That's the test I'd apply at a customer: build a node when **several workflows need the same integration logic**, not just when there's an API.
+
+**What stays in the workflow.** The contract checklist (which five terms, the questions, the sheet columns), Slack channel names, the approval step and the 2-day timeout are all specific to one customer's process. I kept them in the workflows (a Code node, the Slack node), not as node parameters, and deliberately did *not* add an "Extract contract terms" operation. A node with one customer's checklist baked in isn't reusable, and a workflow is something the customer can edit without a release.
+
+**What moved to the server instead.** The "answered" check started as node logic and moved into the API, so the web UI, the node and the evaluation harness all use one rule. If the logic is about the data, it belongs behind the API, not in the integration.
+
+**Where I'd push back:**
+- *"Auto-reply to legal emails."* No. The model drafts and a person approves in Slack. Unanswered and partly answered questions go to a person. The evaluation shows 98% accuracy, which means about 1 in 50 answers would still be wrong.
+- *"Make it a trigger node (new document indexed)."* Not yet. The API has no events, so a trigger would just be a polling loop dressed up as one. Add webhooks to the API first.
+- *"Build our own RAG for this."* Only if it earns it. For English PDFs and simple questions, n8n's built-in vector store and AI Agent nodes are enough and easier for a customer to own. A separate service pays off here because of Serbian Cyrillic/Latin handling, article-aware chunking, scoping by document, and an evaluation set that proves the answers are right.
+
+**What I'd do differently next time:**
+- In a real engagement I'd start with an HTTP Request node prototype of the main workflow, confirm it's the right workflow with the users, and only then turn it into a node. Here the node was the goal from the start.
+- Test the email and Slack paths against the customer's real systems on day one. I could only test them against a local mail server, with the Slack and SMTP nodes disabled.
+- Put n8n behind HTTPS (Nginx Proxy Manager is already on the server), then turn secure cookies back on.
+
+**Feedback I'd pass to n8n's product team**, from building this:
+- The documented manual install of a community node in Docker fails unless you add `--legacy-peer-deps`.
+- The strict community-node lint also applies to test files, so even `node:test` imports fail it. Tests have to be written as `.mjs` to get around it.
+
 ## Running it
 
 ```bash
@@ -174,6 +220,8 @@ The app talks to any OpenAI-compatible API, so switching provider is a `.env` ch
 | Ollama | Free, local | No key, runs on your machine. Good for offline or private documents. |
 | OpenAI | Paid | `text-embedding-3-small` + `gpt-4o-mini` |
 | Azure OpenAI | Paid | Uses deployment names |
+
+Set `API_KEY` in `.env` before anything else on the network (such as n8n) calls the API; clients then send it as `X-API-Key`, and the web page asks for it once.
 
 Embeddings from different models aren't comparable, so switching the embedding model needs a fresh database (`docker compose down -v`). The app refuses to start with a clear message if the configured dimension doesn't match the stored one.
 
@@ -197,7 +245,7 @@ curl "http://localhost:8000/search?q=probni%20rad&mode=hybrid"
 | `GET` | `/documents` | List indexed documents |
 | `DELETE` | `/documents/{id}` | Remove a document and its chunks |
 | `GET` | `/search?q=&k=&mode=&documents=` | Retrieval only (`vector`, `keyword`, `hybrid`) |
-| `POST` | `/ask` | Answer a question with cited sources, token usage and timings; optional `documents` limits it to those ids |
+| `POST` | `/ask` | Answer a question with cited sources, `answered` and `citations`, token usage and timings; optional `documents` limits it to those ids |
 | `GET` | `/info` | Active provider and models |
 | `GET` | `/health` | Health check |
 
@@ -225,7 +273,7 @@ uvicorn app.main:app --reload
 
 ```
 app/
-  main.py      FastAPI routes and error handling
+  main.py      FastAPI routes, optional API key, error handling
   ingest.py    Text extraction (PDF, DOCX, TXT), page joining, duplicate detection, indexing
   chunking.py  Article-aware chunking
   text.py      Cyrillic → Latin transliteration and search normalisation
@@ -238,7 +286,10 @@ app/
 scripts/       Bulk ingest, re-chunking, evaluation harness, data validation (+ data_checks.sql)
 eval/          Test set (testset.jsonl), harness runs (runs/), data-validation findings, original eval
 samples/       Two fictional job contracts and an annex to one of them
-tests/         Unit tests (chunking, transliteration, stemming, search, rate limiting, page mapping, grading, harness, data checks)
+tests/         Unit tests (chunking, transliteration, stemming, search, rate limiting, page mapping, grading, harness, data checks, API key)
+n8n-nodes-legal-rag/  n8n community node (TypeScript), its tests and example workflows
+deploy/n8n/    Self-hosted n8n (Docker Compose, Postgres)
+.github/       CI and npm publishing for the n8n node
 ```
 
 ## Roadmap
@@ -246,4 +297,5 @@ tests/         Unit tests (chunking, transliteration, stemming, search, rate lim
 - Cross-encoder re-ranking of retrieved candidates
 - Questions spanning several articles; repeated runs to measure judge and model variance
 - Streaming responses
+- Webhooks from the API (document indexed, answer flagged), so n8n can use real triggers instead of polling
 - Contract-specific extraction (parties, salary, dates) for structured comparisons

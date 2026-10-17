@@ -1,0 +1,127 @@
+{
+  "name": "Legal RAG: contract intake → checklist → Google Sheet",
+  "nodes": [
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a01",
+      "name": "Upload contract form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [0, 0],
+      "webhookId": "b62d3f85-8c2a-4e0d-9344-3d4e5f6a7b01",
+      "parameters": {
+        "formTitle": "Index an employment contract",
+        "formDescription": "Upload a contract (PDF, DOCX, TXT or MD). It is indexed for questions, and its key terms are extracted to the contracts sheet.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Contract file",
+              "fieldName": "contract",
+              "fieldType": "file",
+              "multipleFiles": false,
+              "acceptFileTypes": ".pdf,.docx,.txt,.md",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a02",
+      "name": "Index contract",
+      "type": "n8n-nodes-legal-rag.legalRag",
+      "typeVersion": 1,
+      "position": [240, 0],
+      "parameters": {
+        "resource": "document",
+        "operation": "upload",
+        "binaryPropertyName": "contract",
+        "options": { "skipDuplicates": true }
+      },
+      "credentials": {
+        "legalRagApi": { "id": "", "name": "Legal RAG API" }
+      }
+    },
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a03",
+      "name": "Checklist questions",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [480, 0],
+      "parameters": {
+        "jsCode": "// One item per term to extract, all asked about the contract that was just indexed.\nconst documentId = $input.first().json.document_id;\nconst checklist = {\n  salary: 'Kolika je osnovna mesečna zarada?',\n  probation: 'Koliko traje probni rad?',\n  annualLeave: 'Koliko dana godišnjeg odmora ima zaposleni?',\n  noticePeriod: 'Koliki je otkazni rok kada zaposleni da otkaz?',\n  remoteWork: 'Da li zaposleni može da radi od kuće i koliko dana?',\n};\nreturn Object.entries(checklist).map(([key, question]) => ({ json: { key, question, documentId } }));"
+      }
+    },
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a04",
+      "name": "Ask checklist",
+      "type": "n8n-nodes-legal-rag.legalRag",
+      "typeVersion": 1,
+      "position": [720, 0],
+      "parameters": {
+        "resource": "question",
+        "operation": "ask",
+        "question": "={{ $json.question }}",
+        "documents": "={{ [$json.documentId] }}",
+        "simplify": true,
+        "options": {}
+      },
+      "credentials": {
+        "legalRagApi": { "id": "", "name": "Legal RAG API" }
+      }
+    },
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a05",
+      "name": "Build sheet row",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 0],
+      "parameters": {
+        "jsCode": "// Fold the checklist answers into one row. Anything not found goes to needsReview\n// instead of a guessed value, so a person checks those fields.\nconst indexed = $('Index contract').first().json;\nconst asked = $('Checklist questions').all();\nconst row = {\n  indexedAt: $now.toISO(),\n  file: indexed.filename,\n  documentId: indexed.document_id,\n  alreadyIndexed: indexed.duplicate,\n};\nconst needsReview = [];\n$input.all().forEach((item, i) => {\n  const key = asked[i].json.key;\n  row[key] = item.json.answered ? item.json.answer.replace(/\\s*\\[\\d+\\]/g, '') : '';\n  if (!item.json.answered) needsReview.push(key);\n});\nrow.needsReview = needsReview.join(', ');\nreturn [{ json: row }];"
+      }
+    },
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a06",
+      "name": "Append to contracts sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [1200, 0],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "mode": "url", "value": "" },
+        "sheetName": { "__rl": true, "mode": "name", "value": "Contracts" },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": { "id": "", "name": "Google Sheets" }
+      }
+    },
+    {
+      "id": "a41c2e74-7b1f-4d9c-8233-2c3d4e5f6a07",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-60, -320],
+      "parameters": {
+        "width": 820,
+        "height": 240,
+        "content": "## Contract intake → checklist → sheet\nHR uploads a contract in the form. It is indexed (re-uploading the same file is safe), then asked a fixed checklist of questions scoped to **that contract only**, and one row per contract is appended to the `Contracts` sheet.\n\nFields the assistant could not find stay empty and are listed in `needsReview`, never guessed.\n\nSet the spreadsheet URL in the last node. The sheet needs these columns: indexedAt, file, documentId, alreadyIndexed, salary, probation, annualLeave, noticePeriod, remoteWork, needsReview."
+      }
+    }
+  ],
+  "connections": {
+    "Upload contract form": { "main": [[{ "node": "Index contract", "type": "main", "index": 0 }]] },
+    "Index contract": { "main": [[{ "node": "Checklist questions", "type": "main", "index": 0 }]] },
+    "Checklist questions": { "main": [[{ "node": "Ask checklist", "type": "main", "index": 0 }]] },
+    "Ask checklist": { "main": [[{ "node": "Build sheet row", "type": "main", "index": 0 }]] },
+    "Build sheet row": { "main": [[{ "node": "Append to contracts sheet", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}

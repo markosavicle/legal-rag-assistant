@@ -1,0 +1,85 @@
+{
+  "name": "Legal RAG: Q&A webhook",
+  "nodes": [
+    {
+      "id": "3f1a0c52-6b1e-4f7a-9c11-0a1b2c3d4e01",
+      "name": "Question webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [0, 0],
+      "webhookId": "5b8e1d0a-2c4f-4e6b-8a9d-1f2e3d4c5b01",
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "legal-question",
+        "responseMode": "responseNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "3f1a0c52-6b1e-4f7a-9c11-0a1b2c3d4e02",
+      "name": "Ask Legal RAG",
+      "type": "n8n-nodes-legal-rag.legalRag",
+      "typeVersion": 1,
+      "position": [240, 0],
+      "onError": "continueErrorOutput",
+      "parameters": {
+        "resource": "question",
+        "operation": "ask",
+        "question": "={{ $json.body.question }}",
+        "documents": "={{ $json.body.documents ?? [] }}",
+        "simplify": true,
+        "options": {}
+      },
+      "credentials": {
+        "legalRagApi": { "id": "", "name": "Legal RAG API" }
+      }
+    },
+    {
+      "id": "3f1a0c52-6b1e-4f7a-9c11-0a1b2c3d4e03",
+      "name": "Return answer",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [480, -100],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { question: $json.question, answer: $json.answer, answered: $json.answered, citations: $json.citations } }}",
+        "options": {}
+      }
+    },
+    {
+      "id": "3f1a0c52-6b1e-4f7a-9c11-0a1b2c3d4e04",
+      "name": "Return error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [480, 100],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { error: $json.error } }}",
+        "options": { "responseCode": 422 }
+      }
+    },
+    {
+      "id": "3f1a0c52-6b1e-4f7a-9c11-0a1b2c3d4e05",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-60, -260],
+      "parameters": {
+        "width": 620,
+        "height": 200,
+        "content": "## Q&A webhook\nPOST `{\"question\": \"...\", \"documents\": [1]}` to `/webhook/legal-question` and get `{answer, answered, citations}` back.\n\nA thin, authenticated-by-n8n front door so other internal tools (a portal, a chatbot) can ask questions without talking to the RAG API directly. Errors (e.g. an empty question) come back as 422 with a message instead of a hung request.\n\nIn production, add **Header Auth** to the webhook."
+      }
+    }
+  ],
+  "connections": {
+    "Question webhook": { "main": [[{ "node": "Ask Legal RAG", "type": "main", "index": 0 }]] },
+    "Ask Legal RAG": {
+      "main": [
+        [{ "node": "Return answer", "type": "main", "index": 0 }],
+        [{ "node": "Return error", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}

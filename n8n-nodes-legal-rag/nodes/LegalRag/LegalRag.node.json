@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-legal-rag.legalRag",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Data & Storage", "Productivity"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/markosavicle/legal-rag-assistant/tree/main/n8n-nodes-legal-rag#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/markosavicle/legal-rag-assistant/tree/main/n8n-nodes-legal-rag"
+			}
+		]
+	}
+}

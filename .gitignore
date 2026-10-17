@@ -5,3 +5,8 @@ __pycache__/
 data/*
 !data/.gitkeep
 INTERVIEW_NOTES.md
+deploy/n8n/.env
+deploy/n8n/custom/
+n8n-nodes-legal-rag/node_modules/
+n8n-nodes-legal-rag/dist/
+*.tgz

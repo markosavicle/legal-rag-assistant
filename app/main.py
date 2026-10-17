@@ -1,3 +1,4 @@
+import secrets
 import shutil
 import tempfile
 from contextlib import asynccontextmanager
@@ -5,7 +6,7 @@ from pathlib import Path
 from typing import Literal
 
 import openai
-from fastapi import FastAPI, HTTPException, Query, Request, UploadFile
+from fastapi import Depends, FastAPI, Header, HTTPException, Query, Request, UploadFile
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
@@ -28,7 +29,18 @@ async def lifespan(_: FastAPI):
     yield
 
 
-app = FastAPI(title="Legal RAG Assistant", lifespan=lifespan)
+# The page itself and the health check stay open, so the UI can load and monitors can probe.
+OPEN_PATHS = {"/", "/health"}
+
+
+def require_api_key(request: Request, x_api_key: str | None = Header(None)) -> None:
+    if not settings.api_key or request.url.path in OPEN_PATHS:
+        return
+    if not x_api_key or not secrets.compare_digest(x_api_key, settings.api_key):
+        raise HTTPException(401, "Missing or wrong API key (send it in the X-API-Key header)")
+
+
+app = FastAPI(title="Legal RAG Assistant", lifespan=lifespan, dependencies=[Depends(require_api_key)])
 
 
 @app.exception_handler(openai.APIError)
