@@ -169,14 +169,25 @@ The assistant also runs inside [n8n](https://n8n.io/) workflows through a custom
 
 ### Self-hosted n8n
 
-[`deploy/n8n/`](deploy/n8n/) runs n8n 2.43.7 (pinned) with Postgres in Docker. Credentials are encrypted with a generated `N8N_ENCRYPTION_KEY`, and community nodes persist in the `n8n-data` volume. It runs on my Ubuntu 26.04 home server next to the other services there, on the same `nginx-net` network as Nginx Proxy Manager:
+Both the API and n8n run on my Ubuntu 26.04 home server, next to the other services there:
+
+| Service | Compose | Notes |
+|---|---|---|
+| n8n 2.43.7 (pinned) + Postgres 17 | [`deploy/n8n/`](deploy/n8n/) | Credentials encrypted with a generated `N8N_ENCRYPTION_KEY`; the community node persists in the `n8n-data` volume |
+| Legal RAG API + Postgres/pgvector | `docker-compose.yml` + [`docker-compose.server.yml`](docker-compose.server.yml) | Database not published to the host; `API_KEY` required; restarts on boot |
+
+Both join the `nginx-net` network that Nginx Proxy Manager uses, so n8n calls the API by container name (`http://legal-rag-api:8000`) and the API never has to be exposed beyond the LAN for n8n's sake.
 
 ```bash
+# n8n
 cd deploy/n8n && cp .env.example .env   # fill in the two secrets: openssl rand -hex 32
-docker compose -f docker-compose.yml -f docker-compose.nginx-net.yml up -d   # or just docker-compose.yml
+docker compose -f docker-compose.yml -f docker-compose.nginx-net.yml up -d
+
+# API (same .env as local, plus API_KEY)
+docker compose -f docker-compose.yml -f docker-compose.server.yml up -d --build
 ```
 
-n8n reaches the RAG API at `http://host.docker.internal:8000` when both run on one machine. Set `API_KEY` in the API's `.env` and put the same key into the node's credential.
+The server's index was moved over with `pg_dump -Fc` / `pg_restore` (4 documents, 413 chunks, 1,063 cached embeddings), so nothing was re-embedded. Without the server override (one machine, n8n and API in separate compose projects), use `http://host.docker.internal:8000` as the credential's base URL.
 
 ### Node, workflow, or push back: what I'd do differently
 
@@ -288,7 +299,8 @@ eval/          Test set (testset.jsonl), harness runs (runs/), data-validation f
 samples/       Two fictional job contracts and an annex to one of them
 tests/         Unit tests (chunking, transliteration, stemming, search, rate limiting, page mapping, grading, harness, data checks, API key)
 n8n-nodes-legal-rag/  n8n community node (TypeScript), its tests and example workflows
-deploy/n8n/    Self-hosted n8n (Docker Compose, Postgres)
+deploy/n8n/    Self-hosted n8n (Docker Compose, Postgres 17)
+docker-compose.server.yml  Server override: private database, restart policy, shared proxy network
 .github/       CI and npm publishing for the n8n node
 ```
 
