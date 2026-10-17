@@ -3,8 +3,9 @@ from dataclasses import dataclass
 
 # Serbian legislation is structured as "Član 1", "Član 2a" (or Cyrillic "Члан 1.") on their own lines,
 # sometimes followed by footnote asterisks marking amendments ("Član 111.*").
+# The asterisk may be separated by a space ("Члан 147. *").
 _HEADING = r"(?:Član|Члан)[ \t]+\d+[a-zA-Zа-я]?\.?"
-ARTICLE_HEADING = re.compile(rf"^[ \t]*({_HEADING})\**[ \t]*$", re.MULTILINE)
+ARTICLE_HEADING = re.compile(rf"^[ \t]*({_HEADING})[ \t]*\**[ \t]*$", re.MULTILINE)
 
 # Preferred break points, best first.
 SEPARATORS = ("\n\n", ". ", "\n", " ")

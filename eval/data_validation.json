@@ -1,0 +1,40 @@
+{
+  "documents": 4,
+  "chunks": 413,
+  "passed_sql_checks": [
+    "duplicate_filename",
+    "duplicate_document_content",
+    "near_duplicate_documents",
+    "duplicate_chunks",
+    "documents_without_chunks",
+    "missing_document_fields",
+    "empty_chunks",
+    "tiny_chunks",
+    "chunk_index_gaps",
+    "pdf_chunk_without_page",
+    "pages_out_of_order",
+    "zero_embeddings",
+    "cache_from_other_model",
+    "uploaded_in_future"
+  ],
+  "findings": [
+    {
+      "check": "conflicts_with_law",
+      "severity": "error",
+      "message": "aneks_ugovora_ana_jovic.txt: annual leave below the legal minimum of 20 working days (čl. 69); the document says 18",
+      "rows": []
+    },
+    {
+      "check": "annex_date_mismatch",
+      "severity": "error",
+      "message": "aneks_ugovora_ana_jovic.txt: amends the contract of 2025-03-15, but ugovor_o_radu_ana_jovic.txt was signed on 2026-03-15",
+      "rows": []
+    },
+    {
+      "check": "repeated_article",
+      "severity": "warning",
+      "message": "Zakon o radu.pdf: article heading(s) start more than one chunk: 11, 12, 13, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119",
+      "rows": []
+    }
+  ]
+}

@@ -95,3 +95,9 @@ def test_chunk_start_offsets_point_into_the_text():
     text = normalize(LAW)
     for chunk in chunk_document(LAW, size=500, overlap=50):
         assert text[chunk.start:chunk.start + len(chunk.text)] == chunk.text
+
+
+def test_heading_with_spaced_footnote_asterisk_splits():
+    # The Zakon o radu PDF has "Члан 147. *": without this, article 147 was merged into article 146.
+    text = "Члан 146.\nНадзор врши министарство.\nХ. ПРАВА ЗАПОСЛЕНИХ\nЧлан 147. *\nПослодавац следбеник преузима акт."
+    assert [p.splitlines()[0] for p in split_articles(text)] == ["Члан 146.", "Члан 147. *"]

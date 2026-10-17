@@ -66,3 +66,14 @@ def test_latin_question_gets_latin_answer():
 def test_cyrillic_question_keeps_answer_as_is():
     from app.rag import match_script
     assert match_script("Колики је минули рад?", "Најмање 0,4% [1].") == "Најмање 0,4% [1]."
+
+
+def test_article_lookup_keeps_the_first_article_with_a_number():
+    from app.search import first_occurrences
+    hits = [
+        Hit(1, "zakon.pdf", 2, 15, "Član 11.\nNištavost odredaba.", 1.0),
+        Hit(2, "zakon.pdf", 2, 16, "Član 11. (nastavak)\nnastavak teksta", 1.0),
+        Hit(3, "zakon.pdf", 54, 371, "Član 11.\nPrelazna odredba izmena zakona.", 1.0),
+        Hit(4, "ugovor.txt", None, 3, "Član 11.\nUgovorna odredba.", 1.0),
+    ]
+    assert [h.chunk_id for h in first_occurrences(hits)] == [1, 2, 4]

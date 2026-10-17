@@ -75,10 +75,35 @@ def article_lookup(conn, query: str, k: int, documents: list[int] | None = None)
         return []
     rows = conn.execute(
         _SELECT.format(score="1.0")
-        + f" WHERE c.search_text ~* %(pattern)s AND {_in_scope(documents)} ORDER BY c.document_id, c.chunk_index LIMIT %(k)s",
-        {"pattern": rf"^član ({'|'.join(numbers)})\.?(\s|$)", "k": k, "documents": documents},
+        + f" WHERE c.search_text ~* %(pattern)s AND {_in_scope(documents)} ORDER BY c.document_id, c.chunk_index",
+        {"pattern": rf"^član ({'|'.join(numbers)})\.?(\s|$)", "documents": documents},
     ).fetchall()
-    return [Hit(*row) for row in rows]
+    return first_occurrences([Hit(*row) for row in rows])[:k]
+
+
+_HEADING = re.compile(r"^član (\d+[a-z]?)\.?\s*(\(nastavak\))?")
+
+
+def first_occurrences(hits: list[Hit]) -> list[Hit]:
+    """Keep each article number's first occurrence per document, with its continuation chunks.
+
+    Consolidated laws end with the transitional articles of the amending laws, which reuse low
+    numbers ("Član 11." of the 2005 amendment). A question about "član 11" means the law's own
+    article, so later articles with the same number are dropped. Hits must be in document order.
+    """
+    kept, last_index = [], {}
+    for hit in hits:
+        m = _HEADING.match(for_search(hit.content).lower())
+        if not m:
+            continue
+        key = (hit.filename, m.group(1))
+        if not m.group(2) and key not in last_index:
+            last_index[key] = hit.chunk_index
+            kept.append(hit)
+        elif m.group(2) and last_index.get(key) == hit.chunk_index - 1:
+            last_index[key] = hit.chunk_index
+            kept.append(hit)
+    return kept
 
 
 def full_text_search(conn, query: str, k: int, documents: list[int] | None = None) -> list[Hit]:
@@ -116,7 +141,12 @@ def reciprocal_rank_fusion(result_lists: list[list[Hit]], k: int = RRF_K) -> lis
 def search(conn, query: str, query_embedding, k: int, mode: str = "vector", documents: list[int] | None = None) -> list[Hit]:
     """Retrieve the top k chunks. `documents` limits the search to those document ids (None = all)."""
     if mode == "vector":
-        return vector_search(conn, query_embedding, k, documents)
+        # An article the question names is fetched whole, ahead of the semantic matches: similarity
+        # alone may return only one chunk of a long article.
+        hits = {h.chunk_id: h for h in article_lookup(conn, query, k, documents)}
+        for hit in vector_search(conn, query_embedding, k, documents):
+            hits.setdefault(hit.chunk_id, hit)
+        return list(hits.values())[:k]
     if mode == "keyword":
         return keyword_search(conn, query, k, documents)
     if mode == "hybrid":

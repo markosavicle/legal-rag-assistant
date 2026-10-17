@@ -1,0 +1,7077 @@
+[
+  {
+    "id": "law-01",
+    "category": "factual",
+    "question": "Koliko najmanje traje godišnji odmor?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal minimum of 20 working days as stated in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Godišnji odmor traje najmanje 20 radnih dana [1].",
+    "reference": "Najmanje 20 radnih dana u kalendarskoj godini.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 505
+      }
+    ],
+    "latency_ms": 1432,
+    "tokens": 1541,
+    "failure": null
+  },
+  {
+    "id": "law-02",
+    "category": "factual",
+    "question": "Koliko najduže može da traje probni rad?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the maximum duration of the probationary period based on the provided passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Probni rad može da traje najduže šest meseci [1].",
+    "reference": "Najduže šest meseci.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 481
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 465
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 464
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 466
+      }
+    ],
+    "latency_ms": 777,
+    "tokens": 1551,
+    "failure": null
+  },
+  {
+    "id": "law-03",
+    "category": "factual",
+    "question": "Koliko časova nedeljno iznosi puno radno vreme?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately states the standard full-time hours and provides relevant legal exceptions supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Puno radno vreme iznosi 40 časova nedeljno, ako zakonom nije drukčije određeno [1]. Opštim aktom može da se utvrdi da puno radno vreme bude kraće od 40 časova nedeljno, ali ne kraće od 36 časova nedeljno [1]. Puno radno vreme zaposlenog mlađeg od 18 godina života ne može da se utvrdi u trajanju dužem od 35 časova nedeljno [2].",
+    "reference": "40 časova nedeljno.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 10",
+        "chunk_id": 486
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 529
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      }
+    ],
+    "latency_ms": 857,
+    "tokens": 1314,
+    "failure": null
+  },
+  {
+    "id": "law-04",
+    "category": "factual",
+    "question": "Koliko najviše može da traje prekovremeni rad nedeljno?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the maximum duration of overtime work as stated in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Prekovremeni rad ne može da traje duže od osam časova nedeljno [1].",
+    "reference": "Najviše osam časova nedeljno.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 488
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 495
+      }
+    ],
+    "latency_ms": 648,
+    "tokens": 1236,
+    "failure": null
+  },
+  {
+    "id": "law-05",
+    "category": "factual",
+    "question": "Koliko traje pauza u toku rada za zaposlenog koji radi šest časova dnevno?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provision found in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni koji radi najmanje šest časova dnevno ima pravo na odmor u toku dnevnog rada u trajanju od najmanje 30 minuta [1].",
+    "reference": "Najmanje 30 minuta.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 501
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 502
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 536
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 500
+      }
+    ],
+    "latency_ms": 48654,
+    "tokens": 1434,
+    "failure": null
+  },
+  {
+    "id": "law-06",
+    "category": "factual",
+    "question": "Koliko traje odmor između dva radna dana?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provisions found in passage [2] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Zaposleni ima pravo na odmor u trajanju od najmanje 12 časova neprekidno u okviru 24 časa, osim ako zakonom nije drukčije određeno [2]. Zaposleni koji radi u smislu člana 57. ovog zakona ima pravo na odmor u okviru 24 časa u neprekidnom trajanju od najmanje 11 časova [2].",
+    "reference": "Najmanje 12 časova neprekidno u okviru 24 časa (najmanje 11 časova za zaposlene iz člana 57).",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 504
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 503
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 505
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 501
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 502
+      }
+    ],
+    "latency_ms": 773,
+    "tokens": 1332,
+    "failure": null
+  },
+  {
+    "id": "law-07",
+    "category": "factual",
+    "question": "Koliko traje nedeljni odmor?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provisions regarding weekly rest as stated in the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        3
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni ima pravo na nedeljni odmor u trajanju od najmanje 24 časa neprekidno, kojem se dodaje vreme odmora iz člana 66. ovog zakona, ako zakonom nije drukčije određeno [1]. Izuzetno, zaposleni koji zbog obavljanja posla u različitim smenama ili u preraspodeli radnog vremena ne može da koristi odmor u utvrđenom trajanju, ima pravo na nedeljni odmor u trajanju od najmanje 24 časa neprekidno [1][3].",
+    "reference": "Najmanje 24 časa neprekidno, kojem se dodaje dnevni odmor.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 504
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 503
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 505
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 508
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      }
+    ],
+    "latency_ms": 1049,
+    "tokens": 1507,
+    "failure": null
+  },
+  {
+    "id": "law-08",
+    "category": "factual",
+    "question": "Koliko ukupno traju porodiljsko odsustvo i odsustvo radi nege deteta?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the general rule and the specific exceptions provided in the retrieved passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposlena žena ima pravo na porodiljsko odsustvo i odsustvo sa rada radi nege deteta u ukupnom trajanju od 365 dana [1]. Za treće i svako naredno novorođeno dete, zatim ako u prvom porođaju rodi troje ili više dece, kao i ako je rodila jedno, dvoje ili troje dece a u narednom porođaju rodi dvoje ili više dece, ukupno trajanje ovih odsustava je dve godine [2].",
+    "reference": "Ukupno 365 dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 537
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 539
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 540
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 19",
+        "chunk_id": 544
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 793
+      }
+    ],
+    "latency_ms": 891,
+    "tokens": 1624,
+    "failure": null
+  },
+  {
+    "id": "law-09",
+    "category": "factual",
+    "question": "Kada zaposlena žena može da počne porodiljsko odsustvo?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system answer accurately reflects the information provided in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposlena žena ima pravo da otpočne porodiljsko odsustvo na osnovu nalaza nadležnog zdravstvenog organa najranije 45 dana, a obavezno 28 dana pre vremena određenog za porođaj [1].",
+    "reference": "Najranije 45 dana, a obavezno 28 dana pre vremena određenog za porođaj.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 537
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 539
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 793
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 665
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 532
+      }
+    ],
+    "latency_ms": 35752,
+    "tokens": 1588,
+    "failure": null
+  },
+  {
+    "id": "law-10",
+    "category": "factual",
+    "question": "Koji rad se smatra radom noću?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the definition of night work provided in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Rad koji se obavlja u vremenu od 22,00 časa do 6,00 časova narednog dana smatra se radom noću [1].",
+    "reference": "Rad od 22 časa do 6 časova narednog dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 499
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 500
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 557
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 533
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 10",
+        "chunk_id": 484
+      }
+    ],
+    "latency_ms": 683,
+    "tokens": 1586,
+    "failure": null
+  },
+  {
+    "id": "law-11",
+    "category": "factual",
+    "question": "Koliko je uvećanje zarade za rad na dan praznika?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the percentage from the provided passage and cited the source accurately."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Uvećanje zarade za rad na dan praznika koji je neradni dan iznosi najmanje 110% od osnovice [1].",
+    "reference": "Najmanje 110% od osnovice.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 557
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 567
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 558
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 555
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 559
+      }
+    ],
+    "latency_ms": 722,
+    "tokens": 1307,
+    "failure": null
+  },
+  {
+    "id": "law-12",
+    "category": "factual",
+    "question": "Koliko iznosi uvećanje zarade za minuli rad?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the percentage for past work (minuli rad) and provided a citation from the retrieved passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Uvećanje zarade po osnovu vremena provedenog na radu za svaku punu godinu rada ostvarenu u radnom odnosu kod poslodavca (minuli rad) iznosi najmanje 0,4% od osnovice [1].",
+    "reference": "Najmanje 0,4% od osnovice za svaku punu godinu rada.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 557
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 555
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 558
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 559
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 556
+      }
+    ],
+    "latency_ms": 6643,
+    "tokens": 1299,
+    "failure": null
+  },
+  {
+    "id": "law-13",
+    "category": "factual",
+    "question": "Koliko najduže može da traje ugovor o radu na određeno vreme?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the general 24-month limit and correctly identifies the specific legal exceptions provided in the source text."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        3,
+        4
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Ugovor o radu na određeno vreme može da se zasnuje za period koji sa prekidima ili bez prekida ne može biti duži od 24 meseca [1]. Izuzetno, ugovor može trajati najduže do završetka projekta čije je vreme unapred određeno, najduže do isteka roka dozvole za rad sa stranim državljaninom, na vreme čije ukupno trajanje nije duže od 36 meseci za rad na poslovima kod novoosnovanog poslodavca čiji upis u registar nije stariji od jedne godine, kao i najduže do ispunjenja uslova za starosnu penziju za nezaposlenog kome do tog uslova nedostaje do pet godina [3][4].",
+    "reference": "Najduže 24 meseca, sa prekidima ili bez prekida (uz zakonske izuzetke).",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 464
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 6",
+        "chunk_id": 457
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 465
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 466
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 467
+      }
+    ],
+    "latency_ms": 31348,
+    "tokens": 1561,
+    "failure": null
+  },
+  {
+    "id": "law-14",
+    "category": "factual",
+    "question": "Do kada poslodavac mora da isplati zaradu za prethodni mesec?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal requirement stated in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zarada se isplaćuje najkasnije do kraja tekućeg meseca za prethodni mesec [1].",
+    "reference": "Najkasnije do kraja tekućeg meseca za prethodni mesec.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 560
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 24",
+        "chunk_id": 577
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 664
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 24",
+        "chunk_id": 578
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 621
+      }
+    ],
+    "latency_ms": 4711,
+    "tokens": 1268,
+    "failure": null
+  },
+  {
+    "id": "law-15",
+    "category": "factual",
+    "question": "Kolika je otpremnina pri odlasku u penziju?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal requirement for retirement severance pay and correctly cites the supporting passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Otpremnina pri odlasku u penziju isplaćuje se u skladu sa opštim aktom, najmanje u visini dve prosečne zarade [1]. \nPod prosečnom zaradom se smatra prosečna zarada u Republici Srbiji prema poslednjem objavljenom podatku republičkog organa nadležnog za statistiku [1][2].",
+    "reference": "Najmanje u visini dve prosečne zarade.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 574
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 25",
+        "chunk_id": 585
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 619
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 55",
+        "chunk_id": 804
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 622
+      }
+    ],
+    "latency_ms": 3567,
+    "tokens": 1574,
+    "failure": null
+  },
+  {
+    "id": "law-16",
+    "category": "factual",
+    "question": "Koliko dana plaćenog odsustva zaposleni dobija zbog smrti člana uže porodice?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately states the duration of leave and correctly notes that it can be extended by internal acts, both supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni ima pravo na plaćeno odsustvo u trajanju od pet radnih dana zbog smrti člana uže porodice [1]. Opštim aktom i ugovorom o radu može se utvrditi pravo na plaćeno odsustvo u trajanju dužem od ovog utvrđenog trajanja [2].",
+    "reference": "Pet radnih dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 516
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 517
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 541
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 539
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 574
+      }
+    ],
+    "latency_ms": 6544,
+    "tokens": 1706,
+    "failure": null
+  },
+  {
+    "id": "law-17",
+    "category": "factual",
+    "question": "Koliki je otkazni rok ako se ugovor otkaže za vreme probnog rada?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] regarding the notice period during a probationary period."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Za vreme probnog rada otkazni rok ne može biti kraći od pet radnih dana [1].",
+    "reference": "Ne kraći od pet radnih dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 667
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 647
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 786
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 36",
+        "chunk_id": 661
+      }
+    ],
+    "latency_ms": 36550,
+    "tokens": 1406,
+    "failure": null
+  },
+  {
+    "id": "law-18",
+    "category": "factual",
+    "question": "U kom roku poslodavac može da da otkaz nakon što sazna za razlog?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal deadlines provided in the retrieved passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Poslodavac može dati otkaz ugovora o radu u roku od šest meseci od dana saznanja za činjenice koje su osnov za davanje otkaza, odnosno u roku od godinu dana od dana nastupanja činjenica koje su osnov za davanje otkaza [1]. Ovo se odnosi na otkaz ugovora o radu iz člana 179. stav 1. tačka 1) i stavova 2. i 3. zakona [1].",
+    "reference": "U roku od šest meseci od dana saznanja za činjenice, odnosno godinu dana od dana nastupanja činjenica.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 36",
+        "chunk_id": 661
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 647
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 667
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 648
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 665
+      }
+    ],
+    "latency_ms": 5077,
+    "tokens": 1773,
+    "failure": null
+  },
+  {
+    "id": "law-19",
+    "category": "factual",
+    "question": "Koliko najduže može da važi zabrana konkurencije posle prestanka radnog odnosa?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the two-year limit and is fully supported by passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zabrana konkurencije po prestanku radnog odnosa ne može da bude duža od dve godine [1].",
+    "reference": "Najduže dve godine po prestanku radnog odnosa.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 31",
+        "chunk_id": 624
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 623
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 622
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 49",
+        "chunk_id": 757
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 29",
+        "chunk_id": 609
+      }
+    ],
+    "latency_ms": 722,
+    "tokens": 1159,
+    "failure": null
+  },
+  {
+    "id": "law-20",
+    "category": "factual",
+    "question": "Da li zaposleni mlađi od 18 godina sme da radi prekovremeno?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly states that overtime work is prohibited for employees under 18, which is directly supported by passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zabranjen je prekovremeni rad zaposlenog koji je mlađi od 18 godina života [1].",
+    "reference": "Ne, prekovremeni rad zaposlenog mlađeg od 18 godina je zabranjen.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 530
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 529
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 526
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 5",
+        "chunk_id": 451
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 527
+      }
+    ],
+    "latency_ms": 3389,
+    "tokens": 1224,
+    "failure": null
+  },
+  {
+    "id": "law-21",
+    "category": "factual",
+    "question": "Koliko traje pauza za zaposlenog koji radi duže od 10 časova dnevno?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the duration of the break based on the provided passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni koji radi duže od 10 časova dnevno ima pravo na odmor u toku rada u trajanju od najmanje 45 minuta [1].",
+    "reference": "Najmanje 45 minuta.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 501
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 502
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 536
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 503
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 500
+      }
+    ],
+    "latency_ms": 29055,
+    "tokens": 1424,
+    "failure": null
+  },
+  {
+    "id": "law-22",
+    "category": "factual",
+    "question": "Koliko traje pauza ako zaposleni radi između četiri i šest časova dnevno?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the duration of the break based on the provided passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni koji radi duže od četiri, a kraće od šest časova dnevno ima pravo na odmor u toku rada u trajanju od najmanje 15 minuta [1].",
+    "reference": "Najmanje 15 minuta.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 501
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 502
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 536
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 503
+      }
+    ],
+    "latency_ms": 752,
+    "tokens": 1285,
+    "failure": null
+  },
+  {
+    "id": "law-23",
+    "category": "factual",
+    "question": "Koliko najviše časova dnevno zaposleni sme da radi uključujući prekovremeni rad?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately states the maximum daily working hours as supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni ne može da radi duže od 12 časova dnevno uključujući i prekovremeni rad [1][2].",
+    "reference": "Najviše 12 časova dnevno, uključujući prekovremeni rad.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 488
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 487
+      }
+    ],
+    "latency_ms": 807,
+    "tokens": 1463,
+    "failure": null
+  },
+  {
+    "id": "law-24",
+    "category": "factual",
+    "question": "Koliko iznosi uvećanje zarade za prekovremeni rad?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the percentage for overtime work as stated in Article 108 of the Labor Law provided in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Uvećanje zarade za prekovremeni rad iznosi najmanje 26% od osnovice [1].",
+    "reference": "Najmanje 26% od osnovice.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 557
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 555
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 558
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 488
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      }
+    ],
+    "latency_ms": 3502,
+    "tokens": 1392,
+    "failure": null
+  },
+  {
+    "id": "law-25",
+    "category": "factual",
+    "question": "Ako se godišnji odmor koristi u delovima, koliko mora da traje prvi deo?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the duration of the first part of the annual leave and provided a direct citation from the retrieved passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Ako se godišnji odmor koristi u delovima, prvi deo se koristi u trajanju od najmanje dve radne nedelje neprekidno u toku kalendarske godine [1].",
+    "reference": "Najmanje dve radne nedelje neprekidno u toku kalendarske godine.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 510
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 509
+      }
+    ],
+    "latency_ms": 35991,
+    "tokens": 1264,
+    "failure": null
+  },
+  {
+    "id": "law-26",
+    "category": "factual",
+    "question": "Do kada mora da se iskoristi ostatak godišnjeg odmora koji se koristi u delovima?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Ostatak godišnjeg odmora mora da se iskoristi najkasnije do 30. juna naredne godine [1].",
+    "reference": "Najkasnije do 30. juna naredne godine.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 510
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 509
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 514
+      }
+    ],
+    "latency_ms": 5860,
+    "tokens": 1439,
+    "failure": null
+  },
+  {
+    "id": "law-27",
+    "category": "factual",
+    "question": "Koliko dana plaćenog odsustva zaposleni dobija za dobrovoljno davanje krvi?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in the retrieved passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni ima pravo na plaćeno odsustvo u trajanju od dva uzastopna dana za svaki slučaj dobrovoljnog davanja krvi, računajući i dan davanja krvi [1][2].",
+    "reference": "Dva uzastopna dana za svaki slučaj, računajući i dan davanja krvi.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 516
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 517
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 518
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 570
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 536
+      }
+    ],
+    "latency_ms": 717,
+    "tokens": 1703,
+    "failure": null
+  },
+  {
+    "id": "law-28",
+    "category": "factual",
+    "question": "Kada se zaposlenom dostavlja rešenje o korišćenju godišnjeg odmora?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal requirements and includes relevant additional details from the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Rešenje o korišćenju godišnjeg odmora zaposlenom se dostavlja najkasnije 15 dana pre datuma određenog za početak korišćenja godišnjeg odmora [1]. Izuzetno, ako se godišnji odmor koristi na zahtev zaposlenog, rešenje može biti dostavljeno i neposredno pre korišćenja [1]. U slučaju kolektivnog godišnjeg odmora, rešenje se može istaći na oglasnoj tabli najmanje 15 dana pre dana određenog za korišćenje, čime se smatra da je uručeno zaposlenima [2]. Takođe, rešenje se može dostaviti u elektronskoj formi, a na zahtev zaposlenog poslodavac je dužan da ga dostavi i u pisanoj formi [2].",
+    "reference": "Najkasnije 15 dana pre datuma početka korišćenja godišnjeg odmora (ako se koristi na zahtev zaposlenog, može i neposredno pre).",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 514
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      }
+    ],
+    "latency_ms": 5715,
+    "tokens": 1791,
+    "failure": null
+  },
+  {
+    "id": "law-29",
+    "category": "factual",
+    "question": "Do kada poslodavac može da izmeni vreme određeno za korišćenje godišnjeg odmora?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Poslodavac može da izmeni vreme određeno za korišćenje godišnjeg odmora najkasnije pet radnih dana pre dana određenog za korišćenje godišnjeg odmora, ako to zahtevaju potrebe posla [1].",
+    "reference": "Ako to zahtevaju potrebe posla, najkasnije pet radnih dana pre dana određenog za korišćenje godišnjeg odmora.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 514
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 491
+      }
+    ],
+    "latency_ms": 35756,
+    "tokens": 1744,
+    "failure": null
+  },
+  {
+    "id": "law-30",
+    "category": "factual",
+    "question": "Koliki je otkazni rok kada zaposleni sam otkaže ugovor o radu?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provisions found in passage [1] and correctly cites the source."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Kada zaposleni sam otkaže ugovor o radu, otkazni rok iznosi najmanje 15 dana pre dana koji je zaposleni naveo kao dan prestanka radnog odnosa [1]. Opštim aktom ili ugovorom o radu može se utvrditi duži otkazni rok, ali ne duži od 30 dana [1].",
+    "reference": "Najmanje 15 dana; opštim aktom ili ugovorom o radu može se utvrditi duži rok, ali ne duži od 30 dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 647
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 667
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 646
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 662
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      }
+    ],
+    "latency_ms": 1438,
+    "tokens": 1568,
+    "failure": null
+  },
+  {
+    "id": "law-31",
+    "category": "factual",
+    "question": "Koliko najduže traje pripravnički staž?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Pripravnički staž traje najduže godinu dana, ako zakonom nije drukčije određeno [1].",
+    "reference": "Najduže godinu dana, ako zakonom nije drukčije određeno.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 481
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 559
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 40",
+        "chunk_id": 685
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 480
+      }
+    ],
+    "latency_ms": 670,
+    "tokens": 1287,
+    "failure": null
+  },
+  {
+    "id": "law-32",
+    "category": "factual",
+    "question": "Koliko traje porodiljsko odsustvo posle porođaja?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] regarding the duration of maternity leave."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Porodiljsko odsustvo traje do navršena tri meseca od dana porođaja [1].",
+    "reference": "Do navršena tri meseca od dana porođaja.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 537
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 539
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 793
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 536
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 541
+      }
+    ],
+    "latency_ms": 679,
+    "tokens": 1403,
+    "failure": null
+  },
+  {
+    "id": "law-33",
+    "category": "factual",
+    "question": "Koliko najviše zaposleni sa punim radnim vremenom može da radi po ugovoru o dopunskom radu?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni koji radi sa punim radnim vremenom kod poslodavca može da zaključi ugovor o dopunskom radu sa drugim poslodavcem najviše do jedne trećine punog radnog vremena [1].",
+    "reference": "Najviše do jedne trećine punog radnog vremena.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 40",
+        "chunk_id": 687
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 8",
+        "chunk_id": 472
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 488
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 8",
+        "chunk_id": 470
+      }
+    ],
+    "latency_ms": 20114,
+    "tokens": 1362,
+    "failure": null
+  },
+  {
+    "id": "law-34",
+    "category": "factual",
+    "question": "Kolika je najmanja otpremnina kada zaposleni ostane bez posla zbog tehnoloških, ekonomskih ili organizacionih promena?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal requirement stated in the retrieved passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Visina otpremnine u slučaju prestanka potrebe za radom zbog tehnoloških, ekonomskih ili organizacionih promena utvrđuje se opštim aktom ili ugovorom o radu, s tim što ne može biti niža od zbira trećine zarade zaposlenog za svaku navršenu godinu rada u radnom odnosu kod poslodavca kod koga ostvaruje pravo na otpremninu [1].",
+    "reference": "Ne može biti niža od zbira trećine zarade zaposlenog za svaku navršenu godinu rada u radnom odnosu kod tog poslodavca.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 619
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 29",
+        "chunk_id": 612
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 55",
+        "chunk_id": 804
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 574
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 620
+      }
+    ],
+    "latency_ms": 10865,
+    "tokens": 1666,
+    "failure": null
+  },
+  {
+    "id": "law-35",
+    "category": "factual",
+    "question": "Kolika je naknada zarade za vreme bolovanja zbog povrede na radu?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Za vreme odsustvovanja sa rada zbog privremene sprečenosti za rad do 30 dana koja je prouzrokovana povredom na radu, zaposleni ima pravo na naknadu zarade u visini 100% prosečne zarade u prethodnih 12 meseci pre meseca u kojem je nastupila privremena sprečenost za rad, s tim da ne može biti niža od minimalne zarade utvrđene u skladu sa zakonom, ako zakonom nije drukčije određeno [1].",
+    "reference": "100% prosečne zarade u prethodnih 12 meseci, ali ne manje od minimalne zarade.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 568
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 38",
+        "chunk_id": 672
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 570
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 31",
+        "chunk_id": 627
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 571
+      }
+    ],
+    "latency_ms": 11476,
+    "tokens": 1566,
+    "failure": null
+  },
+  {
+    "id": "law-36",
+    "category": "factual",
+    "question": "Kolika najviše može da bude novčana kazna koju poslodavac izrekne zaposlenom za povredu radne discipline?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the measure from the provided passage and accurately stated the percentage and duration."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Novčana kazna koju poslodavac može da izreknem zaposlenom za povredu radne discipline može biti u visini do 20% osnovne zarade zaposlenog za mesec u kome je novčana kazna izrečena, u trajanju do tri meseca [1].",
+    "reference": "Do 20% osnovne zarade za mesec u kome je izrečena, u trajanju do tri meseca.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 35",
+        "chunk_id": 653
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 774
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 770
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 772
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 776
+      }
+    ],
+    "latency_ms": 14108,
+    "tokens": 1955,
+    "failure": null
+  },
+  {
+    "id": "law-38",
+    "category": "factual",
+    "question": "U kom roku zaposleni mora da se vrati na rad posle isteka mirovanja radnog odnosa?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately identifies the 15-day deadline and the consequence of failure to return, with full support from the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1,
+        5
+      ]
+    },
+    "answer": "Zaposleni ima pravo da se u roku od 15 dana od dana odsluženja, odnosno dosluženja vojnog roka, prestanka rada u inostranstvu, odnosno kod drugog poslodavca, prestanka funkcije, povratka sa izdržavanja kazne zatvora, odnosno mere bezbednosti, vaspitne ili zaštitne mere, vrati na rad kod poslodavca [1]. Poslodavac takođe može zaposlenom da otkaže ugovor o radu ako se ne vrati na rad kod poslodavca u roku od 15 dana od dana isteka roka mirovanja radnog odnosa iz člana 79. ovog zakona, odnosno neplaćenog odsustva iz člana 100. ovog zakona [5].",
+    "reference": "U roku od 15 dana (od odsluženja vojnog roka, prestanka funkcije i sl.); ako se ne vrati u tom roku, poslodavac može da mu otkaže ugovor.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 16",
+        "chunk_id": 521
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 518
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 16",
+        "chunk_id": 520
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 16",
+        "chunk_id": 519
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 648
+      }
+    ],
+    "latency_ms": 19587,
+    "tokens": 1624,
+    "failure": null
+  },
+  {
+    "id": "law-39",
+    "category": "factual",
+    "question": "Kada se smatra da je radni odnos na određeno vreme prešao u radni odnos na neodređeno vreme?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provision found in passage [2] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Radni odnos na određeno vreme smatra se da je prešao u radni odnos na neodređeno vreme ako je ugovor o radu zaključen suprotno odredbama zakona ili ako zaposleni ostane da radi kod poslodavca najmanje pet radnih dana po isteku vremena za koje je ugovor zaključen [2].",
+    "reference": "Ako je ugovor zaključen suprotno zakonu ili ako zaposleni ostane da radi najmanje pet radnih dana po isteku ugovora.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 6",
+        "chunk_id": 457
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 467
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 8",
+        "chunk_id": 469
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 464
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 6",
+        "chunk_id": 458
+      }
+    ],
+    "latency_ms": 11141,
+    "tokens": 1147,
+    "failure": null
+  },
+  {
+    "id": "law-41",
+    "category": "factual",
+    "question": "Da li zaposlena za vreme trudnoće sme da radi noću?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provision found in passage [1] and correctly cites it."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposlena za vreme trudnoće ne može da radi noću, ako bi takav rad bio štetan za njeno zdravlje i zdravlje deteta, na osnovu nalaza nadležnog zdravstvenog organa [1].",
+    "reference": "Ne može, ako bi takav rad bio štetan za njeno zdravlje i zdravlje deteta, na osnovu nalaza nadležnog zdravstvenog organa.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 532
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 499
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 531
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 500
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 534
+      }
+    ],
+    "latency_ms": 11460,
+    "tokens": 1412,
+    "failure": null
+  },
+  {
+    "id": "law-42",
+    "category": "factual",
+    "question": "Da li poslodavac može da traži test trudnoće pri zapošljavanju?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provision found in passage [1] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Poslodavac ne može da uslovljava zasnivanje radnog odnosa testom trudnoće, osim ako se radi o poslovima kod kojih postoji znatan rizik za zdravlje žene i deteta utvrđen od strane nadležnog zdravstvenog organa [1].",
+    "reference": "Ne može, osim za poslove sa znatnim rizikom za zdravlje žene i deteta koji je utvrdio nadležni zdravstveni organ.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 5",
+        "chunk_id": 452
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 534
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 532
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 531
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 4",
+        "chunk_id": 443
+      }
+    ],
+    "latency_ms": 14115,
+    "tokens": 1340,
+    "failure": null
+  },
+  {
+    "id": "cyr-01",
+    "category": "cyrillic",
+    "question": "Колико по правилу траје радна недеља?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] and matches the reference answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Радна недеља, по правилу, траје пет радних дана [1].",
+    "reference": "По правилу пет радних дана.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 504
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 529
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 10",
+        "chunk_id": 486
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      }
+    ],
+    "latency_ms": 10717,
+    "tokens": 1238,
+    "failure": null
+  },
+  {
+    "id": "cyr-02",
+    "category": "cyrillic",
+    "question": "Шта је забрана конкуренције?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system accurately defines the non-compete clause based on the provided legal text and correctly cites the source."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Уговором о раду могу да се утврде послови које запослени не може да ради у своје име и за свој рачун, као и у име и за рачун другог правног или физичког лица, без сагласности послодавца код кога је у радном односу, што се назива забраном конкуренције [1].",
+    "reference": "Забрана да запослени без сагласности послодавца ради за свој или туђи рачун послове из делатности коју обавља послодавац.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 623
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 31",
+        "chunk_id": 624
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 30",
+        "chunk_id": 622
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 479
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 48",
+        "chunk_id": 746
+      }
+    ],
+    "latency_ms": 9038,
+    "tokens": 1374,
+    "failure": null
+  },
+  {
+    "id": "cyr-03",
+    "category": "cyrillic",
+    "question": "Колико најмање траје годишњи одмор?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the minimum duration of annual leave as 20 working days, which is explicitly supported by passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Годишњи одмор траје најмање 20 радних дана [1].",
+    "reference": "Најмање 20 радних дана у календарској години.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 505
+      }
+    ],
+    "latency_ms": 11240,
+    "tokens": 1545,
+    "failure": null
+  },
+  {
+    "id": "cyr-04",
+    "category": "cyrillic",
+    "question": "Колико највише може да траје прековремени рад недељно?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the maximum weekly overtime limit and provided a citation from the relevant passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Прековремени рад не може да траје дуже од осам часова недељно [1].",
+    "reference": "Највише осам часова недељно.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 488
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 495
+      }
+    ],
+    "latency_ms": 13701,
+    "tokens": 1239,
+    "failure": null
+  },
+  {
+    "id": "art-01",
+    "category": "article",
+    "question": "Šta propisuje član 62?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system answer accurately reflects the content of Article 62 as provided in the retrieved passage and includes all key details from the reference."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Član 62 propisuje da se rad koji se obavlja u vremenu od 22,00 časa do 6,00 časova narednog dana smatra radom noću [1]. Takođe, poslodavac je dužan da zaposlenom koji radi noću najmanje tri časa svakog radnog dana ili trećinu punog radnog vremena u toku jedne radne nedelje obezbedi obavljanje poslova u toku dana ako bi, po mišljenju nadležnog zdravstvenog organa, takav rad doveo do pogoršanja njegovog zdravstvenog stanja [1]. Pored toga, poslodavac je dužan da pre uvođenja noćnog rada zatraži mišljenje sindikata o merama bezbednosti i zaštite života i zdravlja na radu zaposlenih koji rad obavljaju noću [1].",
+    "reference": "Rad od 22 časa do 6 časova narednog dana smatra se radom noću; uređuje i obaveze poslodavca prema zaposlenima koji rade noću.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 499
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 496
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 49",
+        "chunk_id": 756
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 476
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 49",
+        "chunk_id": 755
+      }
+    ],
+    "latency_ms": 19534,
+    "tokens": 1019,
+    "failure": null
+  },
+  {
+    "id": "art-02",
+    "category": "article",
+    "question": "Šta kaže član 184 Zakona o radu?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system accurately and comprehensively summarized Article 184 based on the provided passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Poslodavac može dati zaposlenom otkaz ugovora o radu iz člana 179. stav 1. tačka 1) i st. 2. i 3. ovog zakona u roku od šest meseci od dana saznanja za činjenice koje su osnov za davanje otkaza, odnosno u roku od godinu dana od dana nastupanja činjenica koje su osnov za davanje otkaza [1]. Poslodavac može dati zaposlenom otkaz ugovora o radu iz člana 179. stav 1. tačka 2) ovog zakona najkasnije do isteka roka zastarelosti za krivično delo utvrđeno zakonom [1].",
+    "reference": "Rokove zastarelosti za otkaz: šest meseci od dana saznanja za činjenice, odnosno godinu dana od dana nastupanja činjenica.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 36",
+        "chunk_id": 661
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 38",
+        "chunk_id": 668
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 663
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 664
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 526
+      }
+    ],
+    "latency_ms": 10074,
+    "tokens": 1312,
+    "failure": null
+  },
+  {
+    "id": "art-03",
+    "category": "article",
+    "question": "Šta je uređeno članom 36?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": false,
+    "judge": {
+      "correct": false,
+      "grounded": true,
+      "reason": "The answer is incomplete as it omits the duration of the probationary period and the notice period, which are key facts present in the reference and the retrieved passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Članom 36. ugovorom o radu može da se ugovori probni rad za obavljanje jednog ili više povezanih, odnosno srodnih poslova utvrđenih ugovorom o radu [1].",
+    "reference": "Probni rad: može se ugovoriti, traje najduže šest meseci, a otkazni rok tokom probnog rada ne može biti kraći od pet radnih dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 512
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 496
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 476
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 45",
+        "chunk_id": 725
+      }
+    ],
+    "latency_ms": 9069,
+    "tokens": 845,
+    "failure": "incomplete_answer"
+  },
+  {
+    "id": "art-04",
+    "category": "article",
+    "question": "Šta propisuje član 94?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately summarizes the provisions of Article 94 based on the provided passages and includes all key details."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Član 94 propisuje da zaposlena žena ima pravo na odsustvo sa rada zbog trudnoće i porođaja (porodiljsko odsustvo), kao i na odsustvo sa rada radi nege deteta, u ukupnom trajanju od 365 dana [1]. Zaposlena žena ima pravo da otpočne porodiljsko odsustvo na osnovu nalaza nadležnog zdravstvenog organa najranije 45 dana, a obavezno 28 dana pre vremena određenog za porođaj [1]. Porodiljsko odsustvo traje do navršena tri meseca od dana porođaja [1]. Po isteku porodiljskog odsustva, zaposlena žena ima pravo na odsustvo sa rada radi nege deteta do isteka 365 dana od dana otpočinjanja porodiljskog odsustva [1]. Otac deteta može da koristi pravo na porodiljsko odsustvo trajanja do tri meseca od dana porođaja u slučaju kad majka napusti dete, umre ili je iz drugih opravdanih razloga sprečena da koristi to pravo (izdržavanje kazne zatvora, teža bolest i dr.), a to pravo otac deteta ima i kada majka nije u radnom odnosu [1][2]. Otac deteta takođe može da koristi pravo na odsustvo sa rada radi nege deteta do isteka 365 dana od dana otpočinjanja porodiljskog odsustva [1][2]. Za vreme porodiljskog odsustva i odsustva sa rada radi nege deteta zaposlena žena, odnosno otac deteta, ima pravo na naknadu zarade, u skladu sa zakonom [2].",
+    "reference": "Porodiljsko odsustvo i odsustvo radi nege deteta u ukupnom trajanju od 365 dana; porodiljsko počinje najranije 45, a obavezno 28 dana pre porođaja i traje do navršena tri meseca od porođaja.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 537
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 538
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 539
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 540
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 476
+      }
+    ],
+    "latency_ms": 13950,
+    "tokens": 1770,
+    "failure": null
+  },
+  {
+    "id": "art-05",
+    "category": "article",
+    "question": "Šta propisuje član 110?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the relevant provision regarding salary payment and acknowledges the ambiguity caused by the document containing two different articles numbered 110."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "U dokumentu Zakon o radu.pdf (strana 21) član 110. propisuje da se zarada isplaćuje u rokovima utvrđenim opštim aktom i ugovorom o radu, najmanje jedanput mesečno, a najkasnije do kraja tekućeg meseca za prethodni mesec [1]. Takođe, propisuje se da se zarada isplaćuje samo u novcu, ako zakonom nije drukčije određeno [1].\n\nU istom dokumentu, ali na strani 55, član 110. propisuje da je poslodavac dužan da pravilnik o unutrašnjoj organizaciji i sistematizaciji poslova usaglasi sa odredbama ovog zakona u roku do 60 dana od dana stupanja na snagu ovog zakona [2].",
+    "reference": "Rokove isplate zarade: najmanje jedanput mesečno, a najkasnije do kraja tekućeg meseca za prethodni mesec. (Prelazna odredba izmena zakona sa istim brojem, o usklađivanju pravilnika o sistematizaciji, nije član 110 Zakona o radu; odgovor koji opisuje samo nju nije tačan.)",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 560
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 55",
+        "chunk_id": 796
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 55",
+        "chunk_id": 799
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 559
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 26",
+        "chunk_id": 590
+      }
+    ],
+    "latency_ms": 19034,
+    "tokens": 927,
+    "failure": null
+  },
+  {
+    "id": "art-06",
+    "category": "article",
+    "question": "Šta propisuje član 147?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system answer accurately reflects the content of Article 147 as provided in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "U slučaju statusne promene, odnosno promene poslodavca, u skladu sa zakonom, poslodavac sledbenik preuzima od poslodavca prethodnika opšti akt i sve ugovore o radu koji važe na dan promene poslodavca [1].",
+    "reference": "Pri statusnoj promeni ili promeni poslodavca, poslodavac sledbenik preuzima od poslodavca prethodnika opšti akt i sve ugovore o radu koji važe na dan promene poslodavca.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 28",
+        "chunk_id": 606
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 28",
+        "chunk_id": 607
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 476
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 27",
+        "chunk_id": 601
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 28",
+        "chunk_id": 605
+      }
+    ],
+    "latency_ms": 10965,
+    "tokens": 833,
+    "failure": null
+  },
+  {
+    "id": "con-01",
+    "category": "contract",
+    "question": "Na kojim poslovima radi Ana Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately identifies the job position based on the provided passage [2]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Ana Jović zasniva radni odnos na poslovima radnog mesta Backend developer [2].",
+    "reference": "Na poslovima radnog mesta Backend developer.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 386
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 389
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 394
+      }
+    ],
+    "latency_ms": 11925,
+    "tokens": 705,
+    "failure": null
+  },
+  {
+    "id": "con-02",
+    "category": "contract",
+    "question": "Na koliko je zaključen ugovor o radu Nikole Ilića?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the duration of the employment contract based on the provided passage [2]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Ugovor o radu Nikole Ilića zaključen je na određeno vreme od 12 meseci [2].",
+    "reference": "Na određeno vreme od 12 meseci.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      }
+    ],
+    "latency_ms": 14284,
+    "tokens": 732,
+    "failure": null
+  },
+  {
+    "id": "con-03",
+    "category": "contract",
+    "question": "Kada Nikola Ilić počinje sa radom?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the start date from passage [2] and provided a complete answer."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Nikola Ilić počinje sa radom 15.09.2026. godine [2].",
+    "reference": "15.09.2026. godine.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 405
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      }
+    ],
+    "latency_ms": 15520,
+    "tokens": 719,
+    "failure": null
+  },
+  {
+    "id": "con-04",
+    "category": "contract",
+    "question": "Koliko iznosi osnovna zarada Nikole Ilića?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the salary amount from the provided passage and cited the source."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Osnovna mesečna zarada Nikole Ilića iznosi 145.000,00 dinara bruto [2].",
+    "reference": "145.000,00 dinara bruto mesečno.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      }
+    ],
+    "latency_ms": 661,
+    "tokens": 727,
+    "failure": null
+  },
+  {
+    "id": "con-05",
+    "category": "contract",
+    "question": "Koliko traje probni rad Ane Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the duration of the probationary period and cited the supporting passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Probni rad Ane Jović traje tri meseca [1].",
+    "reference": "Tri meseca.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 393
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 386
+      }
+    ],
+    "latency_ms": 5063,
+    "tokens": 667,
+    "failure": null
+  },
+  {
+    "id": "con-06",
+    "category": "contract",
+    "question": "Da li Nikola Ilić može da radi od kuće?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that remote work is not provided for based on the provided document passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Rad od kuće nije predviđen [2].",
+    "reference": "Ne, rad od kuće nije predviđen; radi u kancelariji poslodavca.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 403
+      }
+    ],
+    "latency_ms": 13137,
+    "tokens": 672,
+    "failure": null
+  },
+  {
+    "id": "con-07",
+    "category": "contract",
+    "question": "Koliki je otkazni rok ako Nikola Ilić da otkaz?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the notice period and provides additional relevant context from the retrieved passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        3
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "U slučaju da zaposleni Nikola Ilić da otkaz, otkazni rok iznosi 15 dana [1]. Za vreme probnog rada, svaka ugovorna strana može otkazati ugovor sa otkaznim rokom od pet radnih dana [3].",
+    "reference": "15 dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 404
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 15632,
+    "tokens": 727,
+    "failure": null
+  },
+  {
+    "id": "con-08",
+    "category": "contract",
+    "question": "Šta poslodavac obezbeđuje Ani Jović pored zarade?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system answer accurately reflects the information provided in passage [2]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Poslodavac Ani Jović obezbeđuje laptop, plaćeno privatno zdravstveno osiguranje i godišnji budžet za stručno usavršavanje od 60.000,00 dinara [2].",
+    "reference": "Laptop, plaćeno privatno zdravstveno osiguranje i godišnji budžet za stručno usavršavanje od 60.000 dinara.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 392
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 391
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 389
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      }
+    ],
+    "latency_ms": 11089,
+    "tokens": 799,
+    "failure": null
+  },
+  {
+    "id": "con-09",
+    "category": "contract",
+    "question": "Do kada se Nikoli Iliću isplaćuje zarada?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system answer accurately reflects the information provided in passage [2]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Zarada se isplaćuje do kraja tekućeg meseca za prethodni mesec [2].",
+    "reference": "Do kraja tekućeg meseca za prethodni mesec.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 404
+      }
+    ],
+    "latency_ms": 565,
+    "tokens": 704,
+    "failure": null
+  },
+  {
+    "id": "con-10",
+    "category": "contract",
+    "question": "Koliko dugo Ana Jović mora da čuva poslovnu tajnu?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system answer accurately reflects the information provided in passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Ana Jović mora da čuva poslovnu tajnu za vreme trajanja radnog odnosa i dve godine po njegovom prestanku [1].",
+    "reference": "Za vreme trajanja radnog odnosa i dve godine po njegovom prestanku.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 394
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 393
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      }
+    ],
+    "latency_ms": 5577,
+    "tokens": 695,
+    "failure": null
+  },
+  {
+    "id": "con-11",
+    "category": "contract",
+    "question": "Ko zastupa poslodavca u ugovoru Ane Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the representative from the provided passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Poslodavca u ugovoru Ane Jović zastupa direktor Petar Primerović [1].",
+    "reference": "Direktor Petar Primerović.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 386
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 394
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 392
+      }
+    ],
+    "latency_ms": 18891,
+    "tokens": 702,
+    "failure": null
+  },
+  {
+    "id": "con-12",
+    "category": "contract",
+    "question": "Koji je PIB poslodavca Nikole Ilića?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the PIB from the provided passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "PIB poslodavca Nikole Ilića je 100000002 [1].",
+    "reference": "100000002.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      }
+    ],
+    "latency_ms": 15645,
+    "tokens": 721,
+    "failure": null
+  },
+  {
+    "id": "cmp-01",
+    "category": "comparison",
+    "question": "Ko ima duži probni rad, Ana Jović ili Nikola Ilić?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the durations for both individuals based on the provided passages and correctly concludes who has the longer probation period."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        3,
+        4
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.3333333333333333,
+      "ranks": [
+        4,
+        3
+      ]
+    },
+    "answer": "Za ugovor o radu Ane Jović probni rad traje tri meseca [4]. Za ugovor o radu Nikole Ilića probni rad traje šest meseci [3]. Nikola Ilić ima duži probni rad [3][4].",
+    "reference": "Nikola Ilić (šest meseci); Ana Jović ima tri meseca.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 12322,
+    "tokens": 835,
+    "failure": null
+  },
+  {
+    "id": "cmp-02",
+    "category": "comparison",
+    "question": "Koliko dana godišnjeg odmora ima Ana Jović, a koliko Nikola Ilić?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the number of vacation days for both individuals based on the provided documents and cited the relevant passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        2,
+        1
+      ]
+    },
+    "answer": "Ana Jović ima pravo na godišnji odmor u trajanju od 22 radna dana u kalendarskoj godini [2]. \nNikola Ilić ima pravo na godišnji odmor u trajanju od 20 radnih dana u kalendarskoj godini [1].",
+    "reference": "Ana Jović 22 radna dana, Nikola Ilić 20 radnih dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 402
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 391
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 650,
+    "tokens": 818,
+    "failure": null
+  },
+  {
+    "id": "cmp-03",
+    "category": "comparison",
+    "question": "Koji ugovor je na određeno, a koji na neodređeno vreme?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately identifies the employment terms for both individuals and correctly cites the supporting passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        5,
+        2
+      ]
+    },
+    "answer": "U ugovoru o radu za Nikolu Ilića radni odnos je zasnovan na određeno vreme od 12 meseci [2]. U ugovoru o radu za Anu Jović radni odnos je zasnovan na neodređeno vreme [5].",
+    "reference": "Ugovor Ane Jović je na neodređeno vreme, a ugovor Nikole Ilića na određeno vreme od 12 meseci.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 386
+      }
+    ],
+    "latency_ms": 11207,
+    "tokens": 762,
+    "failure": null
+  },
+  {
+    "id": "cmp-04",
+    "category": "comparison",
+    "question": "Koji zaposleni dobija mesečnu karticu za javni prevoz?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies Nikola Ilić based on the provided passage [1]."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Mesečnu karticu za javni prevoz dobija zaposleni Nikola Ilić [1].",
+    "reference": "Nikola Ilić (Primer Logistika d.o.o.).",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 403
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 392
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      }
+    ],
+    "latency_ms": 18413,
+    "tokens": 670,
+    "failure": null
+  },
+  {
+    "id": "cmp-05",
+    "category": "comparison",
+    "question": "Ko ima veću osnovnu zaradu prema ugovoru o radu?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the salary amounts for both individuals and cited the appropriate passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1,
+        2
+      ]
+    },
+    "answer": "Prema ugovorima o radu, Ana Jović ima veću osnovnu mesečnu zaradu (180.000,00 dinara bruto) u odnosu na Nikolu Ilića, čija je osnovna mesečna zarada 145.000,00 dinara bruto [1][2].",
+    "reference": "Ana Jović: 180.000 dinara bruto, više od Nikole Ilića sa 145.000 dinara bruto.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      }
+    ],
+    "latency_ms": 11997,
+    "tokens": 865,
+    "failure": null
+  },
+  {
+    "id": "cf-01",
+    "category": "conflict",
+    "question": "Kolika je trenutno osnovna zarada Ane Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "aneks_ugovora_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately identifies the current salary and the historical context using the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        4,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.2,
+      "ranks": [
+        5
+      ]
+    },
+    "answer": "Osnovna mesečna zarada Ane Jović iznosi 205.000,00 dinara bruto, prema aneksu koji menja originalni ugovor po kojem je zarada iznosila 180.000,00 dinara bruto [4][5].",
+    "reference": "205.000 dinara bruto od 01.09.2026. prema Aneksu I; ugovor je prvobitno predviđao 180.000 dinara. Odgovor koji kao važeći iznos navodi samo 180.000 nije tačan.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 3,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 408
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      },
+      {
+        "n": 5,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 409
+      }
+    ],
+    "latency_ms": 2002,
+    "tokens": 858,
+    "failure": null
+  },
+  {
+    "id": "cf-02",
+    "category": "conflict",
+    "question": "Koliko dana nedeljno Ana Jović može da radi od kuće?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "aneks_ugovora_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the updated provision from the annex and cites the appropriate passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "U ugovoru o radu je navedeno da zaposlena može da radi od kuće najviše dva dana nedeljno [2]. Međutim, aneks ugovora menja tu odredbu, pa zaposlena može da radi od kuće najviše tri dana nedeljno [1][3].",
+    "reference": "Najviše tri dana nedeljno prema Aneksu I (ugovor je prvobitno predviđao dva). Odgovor koji kao važeće navodi samo dva dana nije tačan.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 410
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 389
+      },
+      {
+        "n": 3,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 5,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      }
+    ],
+    "latency_ms": 15711,
+    "tokens": 844,
+    "failure": null
+  },
+  {
+    "id": "cf-03",
+    "category": "conflict",
+    "question": "Koliko dana godišnjeg odmora ima Ana Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "aneks_ugovora_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the updated number of vacation days from the annex and provided proper citations for both the original contract and the annex."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "U ugovoru o radu piše da zaposlena ima pravo na godišnji odmor u trajanju od 22 radna dana u kalendarskoj godini [1]. Međutim, aneks ugovora menja ugovor koji aneksira, pa važi vrednost iz aneksa prema kojoj zaposlena ima pravo na godišnji odmor u trajanju od 18 radnih dana u kalendarskoj godini [2].",
+    "reference": "Prema Aneksu I 18 radnih dana (ugovor je prvobitno predviđao 22). Odgovor koji kao važeće navodi samo 22 dana nije tačan.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 391
+      },
+      {
+        "n": 2,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      },
+      {
+        "n": 3,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 5,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 410
+      }
+    ],
+    "latency_ms": 18189,
+    "tokens": 842,
+    "failure": null
+  },
+  {
+    "id": "cf-04",
+    "category": "conflict",
+    "question": "Da li je godišnji odmor od 18 radnih dana iz aneksa ugovora Ane Jović u skladu sa Zakonom o radu?",
+    "documents": [
+      "aneks_ugovora_ana_jovic.txt",
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies that 18 days is below the legal minimum of 20 days and cites the appropriate passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1,
+        2
+      ]
+    },
+    "answer": "Godišnji odmor od 18 radnih dana iz aneksa ugovora Ane Jović nije u skladu sa Zakonom o radu, jer zakon propisuje da zaposleni ima pravo na godišnji odmor u trajanju od najmanje 20 radnih dana [1][2].",
+    "reference": "Nije: zakon propisuje najmanje 20 radnih dana godišnjeg odmora, a aneks predviđa 18.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 4,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      }
+    ],
+    "latency_ms": 12656,
+    "tokens": 1289,
+    "failure": null
+  },
+  {
+    "id": "cf-05",
+    "category": "conflict",
+    "question": "Da li je otkazni rok od 15 dana iz ugovora Nikole Ilića u skladu sa Zakonom o radu?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt",
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies that the 15-day notice period complies with the law and provides accurate citations from the provided documents."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1,
+        2
+      ]
+    },
+    "answer": "Otkazni rok u slučaju otkaza od strane Zaposlenog iznosi 15 dana po ugovoru Nikole Ilića [1]. Zakon o radu propisuje da zaposleni može otkazati ugovor o radu dostavljanjem otkaza najmanje 15 dana pre dana koji je naveo kao dan prestanka radnog odnosa, a opštim aktom ili ugovorom o radu može se utvrditi duži otkazni rok do 30 dana [2].",
+    "reference": "Jeste: zakon traži da zaposleni da otkaz najmanje 15 dana unapred (a rok ne sme biti duži od 30 dana), a ugovor predviđa 15 dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 404
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 647
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 667
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      }
+    ],
+    "latency_ms": 11178,
+    "tokens": 1203,
+    "failure": null
+  },
+  {
+    "id": "cf-06",
+    "category": "conflict",
+    "question": "Ugovor Ane Jović kaže da se zarada isplaćuje do 10. u mesecu, a zakon do kraja meseca. Koji rok važi za nju?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the applicable deadline and supports it with the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2,
+        3
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2,
+        3
+      ]
+    },
+    "answer": "Prema ugovoru o radu, zarada se isplaćuje do 10. u mesecu za prethodni mesec [2]. Zakon o radu propisuje da se zarada isplaćuje najkasnije do kraja tekućeg meseca za prethodni mesec [3]. Ugovor o radu Ani Jović daje povoljniji rok za isplatu nego što zakon zahteva.",
+    "reference": "Važi ugovoreni rok do 10. u mesecu; on je u okviru zakonskog roka (najkasnije do kraja tekućeg meseca za prethodni mesec).",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 560
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 24",
+        "chunk_id": 577
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 6",
+        "chunk_id": 460
+      }
+    ],
+    "latency_ms": 15281,
+    "tokens": 1309,
+    "failure": null
+  },
+  {
+    "id": "cf-07",
+    "category": "conflict",
+    "question": "Kada je zaključen ugovor o radu Ane Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "aneks_ugovora_ana_jovic.txt"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the date from the contract and provides the supporting passage, though it misses the optional nuance regarding the conflicting date in the annex."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 0.5,
+      "ranks": [
+        2
+      ]
+    },
+    "answer": "Ugovor o radu Ane Jović zaključen je dana 15.03.2026. godine [2].",
+    "reference": "15.03.2026. godine, kako piše u samom ugovoru. (Aneks pogrešno navodi 15.03.2025; odgovor koji navede samo 2025. nije tačan, a pominjanje neslaganja je plus.)",
+    "sources": [
+      {
+        "n": 1,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 3,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 408
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 5,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 412
+      }
+    ],
+    "latency_ms": 17851,
+    "tokens": 784,
+    "failure": null
+  },
+  {
+    "id": "amb-01",
+    "category": "ambiguous",
+    "question": "Koliko traje odmor?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": false,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the durations for annual and weekly leave based on the provided passages and follows the grading criteria."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1,
+        null,
+        2,
+        null
+      ]
+    },
+    "answer": "Zaposleni ima pravo na godišnji odmor u trajanju utvrđenom opštim aktom i ugovorom o radu, a najmanje 20 radnih dana [1]. Dužina godišnjeg odmora se utvrđuje tako što se zakonski minimum od 20 radnih dana uvećava po osnovu doprinosa na radu, uslova rada, radnog iskustva, stručne spreme zaposlenog i drugih kriterijuma utvrđenih opštim aktom ili ugovorom o radu [1]. Pri utvrđivanju dužine godišnjeg odmora radna nedelja se računa kao pet radnih dana [5].\n\nZaposleni koji zbog obavljanja posla u različitim smenama ili u preraspodeli radnog vremena ne može da koristi odmor u trajanju utvrđenom u stavu 1. člana 67, ima pravo na nedeljni odmor u trajanju od najmanje 24 časa neprekidno [2]. Ako je neophodno da zaposleni radi na dan svog nedeljnog odmora, poslodavac je dužan da mu obezbedi odmor u trajanju od najmanje 24 časa neprekidno u toku naredne nedelje [2].",
+    "reference": "Pitanje je višeznačno: odmor u toku rada najmanje 30 minuta, dnevni najmanje 12 časova, nedeljni najmanje 24 časa, godišnji najmanje 20 radnih dana. Tačan je odgovor koji navede bar jednu vrstu odmora sa ispravnim trajanjem i jasno kaže na koju vrstu se odnosi.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 505
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 508
+      }
+    ],
+    "latency_ms": 10426,
+    "tokens": 1743,
+    "failure": null
+  },
+  {
+    "id": "amb-02",
+    "category": "ambiguous",
+    "question": "koliko traje godisnji odmor",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately states the minimum duration of annual leave and provides relevant context from the retrieved passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        4
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "U svakoj kalendarskoj godini zaposleni ima pravo na godišnji odmor u trajanju utvrđenom opštim aktom i ugovorom o radu, a najmanje 20 radnih dana [1]. Dužina godišnjeg odmora utvrđuje se tako što se zakonski minimum od 20 radnih dana uvećava po osnovu doprinosa na radu, uslova rada, radnog iskustva, stručne spreme zaposlenog i drugih kriterijuma utvrđenih opštim aktom ili ugovorom o radu [1]. Pri utvrđivanju dužine godišnjeg odmora radna nedelja se računa kao pet radnih dana [4].",
+    "reference": "Najmanje 20 radnih dana u kalendarskoj godini.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 508
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      }
+    ],
+    "latency_ms": 8023,
+    "tokens": 1685,
+    "failure": null
+  },
+  {
+    "id": "amb-03",
+    "category": "ambiguous",
+    "question": "How long can a probation period last under the law?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified the maximum duration of the probation period and provided a direct citation from the retrieved passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Probni rad može da traje najduže šest meseci [1].",
+    "reference": "At most six months.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 464
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 466
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 465
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 481
+      }
+    ],
+    "latency_ms": 15148,
+    "tokens": 1550,
+    "failure": null
+  },
+  {
+    "id": "amb-04",
+    "category": "ambiguous",
+    "question": "otkazni rok?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": false,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately covers all scenarios mentioned in the reference and is fully supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        5,
+        1,
+        2
+      ]
+    },
+    "answer": "Zaposleni ima pravo da poslodavcu otkaže ugovor o radu u pismenom obliku, najmanje 15 dana pre dana koji je naveo kao dan prestanka radnog odnosa [1]. Opštim aktom ili ugovorom o radu može se utvrditi duži otkazni rok, ali ne duži od 30 dana [1]. \n\nZaposleni kome je ugovor o radu otkazan zato što ne ostvaruje potrebne rezultate rada ili nema potrebna znanja i sposobnosti ima pravo na otkazni rok koji se utvrđuje opštim aktom ili ugovorom o radu u zavisnosti od staža osiguranja, a koji ne može biti kraći od osam niti duži od 30 dana [2]. Ovaj otkazni rok počinje da teče narednog dana od dana dostavljanja rešenja o otkazu ugovora o radu [2].\n\nPre isteka vremena za koji je ugovoren probni rad, poslodavac ili zaposleni može otkazati ugovor o radu sa otkaznim rokom koji ne može biti kraći od pet radnih dana [5].",
+    "reference": "Zavisi od slučaja: kad zaposleni daje otkaz najmanje 15 dana (najduže 30); kad poslodavac otkaže zbog rezultata rada od 8 do 30 dana; za vreme probnog rada najmanje pet radnih dana. Tačan je odgovor koji navede bar jedan slučaj sa ispravnim rokom i kaže na koji slučaj se odnosi.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 34",
+        "chunk_id": 647
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 37",
+        "chunk_id": 667
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 49",
+        "chunk_id": 758
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 786
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      }
+    ],
+    "latency_ms": 13419,
+    "tokens": 1558,
+    "failure": null
+  },
+  {
+    "id": "amb-05",
+    "category": "ambiguous",
+    "question": "Kolika je zarada?",
+    "documents": null,
+    "answer_expected": true,
+    "has_rules": false,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified all relevant salary details for both individuals and provided accurate citations for every claim."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        3,
+        1,
+        4
+      ]
+    },
+    "answer": "Za Nikolu Ilića (ugovor_o_radu_nikola_ilic.txt), osnovna mesečna zarada iznosi 145.000,00 dinara bruto [1].\n\nZa Anu Jović (ugovor_o_radu_ana_jovic.txt i aneks_ugovora_ana_jovic.txt), u ugovoru je navedena osnovna mesečna zarada od 180.000,00 dinara bruto [3], ali aneks menja tu vrednost tako da počev od 01.09.2026. godine osnovna mesečna zarada iznosi 205.000,00 dinara bruto [4].\n\nPrema Zakonu o radu (Zakon o radu.pdf), zarada za obavljeni rad i vreme provedeno na radu sastoji se od osnovne zarade, dela zarade za radni učinak i uvećane zarade [2].",
+    "reference": "Zavisi od ugovora: Ana Jović 180.000 dinara bruto (od 01.09.2026. 205.000 po aneksu), Nikola Ilić 145.000 dinara bruto. Netačan je odgovor koji jedan iznos predstavi kao jedini, bez navođenja na koga se odnosi.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 555
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      },
+      {
+        "n": 4,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 409
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 559
+      }
+    ],
+    "latency_ms": 1010,
+    "tokens": 910,
+    "failure": null
+  },
+  {
+    "id": "amb-06",
+    "category": "ambiguous",
+    "question": "Mogu li da radim prekovremeno koliko hoću?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal limitations on overtime work and is fully supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        4
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Ne možete da radite prekovremeno koliko hoćete, jer prekovremeni rad ne može da traje duže od osam časova nedeljno [1]. Takođe, zaposleni ne može da radi duže od 12 časova dnevno uključujući i prekovremeni rad [1]. Zaposlenom koji radi na poslovima sa skraćenim radnim vremenom ne može da se odredi prekovremeni rad na tim poslovima, osim ako zakonom nije drukčije određeno [1]. Pored toga, zaposleni ne može da radi prekovremeno ako bi, po nalazu nadležnog zdravstvenog organa, takav rad mogao da pogorša njegovo zdravstveno stanje [4].",
+    "reference": "Ne: prekovremeni rad može da traje najviše osam časova nedeljno, a ukupno najviše 12 časova dnevno.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 488
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 495
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 494
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 16",
+        "chunk_id": 523
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      }
+    ],
+    "latency_ms": 986,
+    "tokens": 1267,
+    "failure": null
+  },
+  {
+    "id": "amb-07",
+    "category": "ambiguous",
+    "question": "kolko dana imam slobodno kad mi umre neko od porodice",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the information provided in passage [1] regarding the duration of paid leave for the death of an immediate family member."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zaposleni ima pravo na plaćeno odsustvo u trajanju od pet radnih dana zbog smrti člana uže porodice [1].",
+    "reference": "Pet radnih dana plaćenog odsustva zbog smrti člana uže porodice.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 516
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 517
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 541
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 23",
+        "chunk_id": 574
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      }
+    ],
+    "latency_ms": 534,
+    "tokens": 1543,
+    "failure": null
+  },
+  {
+    "id": "amb-08",
+    "category": "ambiguous",
+    "question": "Šta mi pripada ako radim noću?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provisions regarding night work, including compensation, health protections, shift rotation, and consent requirements, all supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        3,
+        1
+      ]
+    },
+    "answer": "Ako radite noću, imate pravo na uvećanu zaradu u visini utvrđenoj opštim aktom i ugovorom o radu, koja iznosi najmanje 26% od osnovice, ukoliko takav rad nije vrednovan pri utvrđivanju osnovne zarade [3]. Takođe, poslodavac je dužan da vam obezbedi obavljanje poslova u toku dana ako bi, po mišljenju nadležnog zdravstvenog organa, noćni rad doveo do pogoršanja vašeg zdravstvenog stanja, pod uslovom da noću radite najmanje tri časa svakog radnog dana ili trećinu punog radnog vremena u toku jedne radne nedelje [1]. Ako je rad organizovan u smenama koje uključuju noćni rad, poslodavac je dužan da obezbedi izmenu smena tako da ne radite neprekidno više od jedne radne nedelje noću, osim ako date svoju pisanu saglasnost da radite duže od jedne radne nedelje [2]. Ukoliko ste jedan od roditelja sa detetom do tri godine života ili samohrani roditelj koji ima dete do sedam godina života ili dete koje je težak invalid, noću možete raditi samo uz svoju pisanu saglasnost [5].",
+    "reference": "Uvećana zarada za rad noću od najmanje 26% od osnovice, ako takav rad nije vrednovan u osnovnoj zaradi. (Definicija noćnog rada, od 22 do 6 časova, je dodatak, nije obavezna.)",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 499
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 500
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 557
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 12",
+        "chunk_id": 498
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 533
+      }
+    ],
+    "latency_ms": 1429,
+    "tokens": 1775,
+    "failure": null
+  },
+  {
+    "id": "amb-09",
+    "category": "ambiguous",
+    "question": "Koliko traje probni rad?",
+    "documents": null,
+    "answer_expected": true,
+    "has_rules": false,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal limit and the specific durations for both employees as supported by the provided documents."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        3,
+        2,
+        1
+      ]
+    },
+    "answer": "Za ugovore o radu trajanje probnog rada je sledeće:\nU ugovoru za Nikolu Ilića probni rad traje šest meseci [1].\nU ugovoru za Anu Jović probni rad traje tri meseca [2].\nPrema Zakonu o radu, probni rad može da traje najduže šest meseci [3].",
+    "reference": "Zavisi od izvora: zakon dozvoljava najduže šest meseci; Ana Jović ima ugovoren probni rad od tri meseca, Nikola Ilić od šest meseci. Netačan je odgovor koji jedan ugovor predstavi kao da važi za sve.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 481
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      }
+    ],
+    "latency_ms": 10092,
+    "tokens": 1083,
+    "failure": null
+  },
+  {
+    "id": "amb-10",
+    "category": "ambiguous",
+    "question": "Koliko dana godišnjeg odmora pripada zaposlenima?",
+    "documents": null,
+    "answer_expected": true,
+    "has_rules": false,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately identifies the legal minimum and correctly distinguishes between the specific contract details for both employees based on the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        2,
+        3,
+        4,
+        1
+      ]
+    },
+    "answer": "Za ugovor_o_radu_nikola_ilic.txt, zaposleni ima pravo na godišnji odmor u trajanju od 20 radnih dana u kalendarskoj godini [1]. Zakon o radu propisuje da zaposleni ima pravo na godišnji odmor u trajanju utvrđenom opštim aktom i ugovorom o radu, a najmanje 20 radnih dana, koji se uvećava po osnovu doprinosa na radu, uslova rada, radnog iskustva, stručne spreme i drugih kriterijuma [2].\n\nZa ugovor_o_radu_ana_jovic.txt, zaposlena je po ugovoru imala pravo na 22 radna dana godišnjeg odmora [3], ali aneks_ugovora_ana_jovic.txt (koji menja ugovor) propisuje trajanje od 18 radnih dana [4]. Pri tome, Zakonom o radu je propisan zakonski minimum od najmanje 20 radnih dana [2], što znači da ugovoreni broj dana iz aneksa za zaposlenu Anu Jović daje manje nego što zakon zahteva [2][4].",
+    "reference": "Po zakonu najmanje 20 radnih dana; po ugovorima Ana Jović 22 (aneksom 18), Nikola Ilić 20. Tačan je odgovor koji navede zakonski minimum od 20 radnih dana ili jasno razdvoji šta važi za koji ugovor.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 402
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 391
+      },
+      {
+        "n": 4,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      }
+    ],
+    "latency_ms": 1175,
+    "tokens": 1136,
+    "failure": null
+  },
+  {
+    "id": "amb-11",
+    "category": "ambiguous",
+    "question": "Koliko traje porodiljsko?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": false,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer accurately reflects the legal provisions regarding maternity leave duration and is fully supported by the provided passages."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1,
+        1
+      ]
+    },
+    "answer": "Zaposlena žena ima pravo na porodiljsko odsustvo koje traje do navršena tri meseca od dana porođaja [1]. Ukupan trajanje porodiljskog odsustva i odsustva sa rada radi nege deteta iznosi 365 dana [1]. Za treće i svako naredno novorođeno dete, kao i u slučajevima višestrukih porođaja utvrđenih zakonom, ukupno trajanje porodiljskog odsustva i odsustva sa rada radi nege deteta iznosi dve godine [2].",
+    "reference": "Porodiljsko odsustvo traje do navršena tri meseca od dana porođaja; zajedno sa odsustvom radi nege deteta ukupno 365 dana. Tačan je odgovor koji navede bilo koje od toga i jasno kaže na šta se odnosi.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 537
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 539
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 793
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 541
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 18",
+        "chunk_id": 536
+      }
+    ],
+    "latency_ms": 37144,
+    "tokens": 1501,
+    "failure": null
+  },
+  {
+    "id": "oos-01",
+    "category": "out_of_scope",
+    "question": "Koja je kazna za prebrzu vožnju?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "Sistem je ispravno utvrdio da dokumenti koji se odnose na Zakon o radu ne sadrže informacije o kaznama za prebrzu vožnju."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Ne mogao sam da pronađem odgovor u dokumentima [1][2][3][4][5].",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 775
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 777
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 771
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 772
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 778
+      }
+    ],
+    "latency_ms": 4521,
+    "tokens": 1784,
+    "failure": null
+  },
+  {
+    "id": "oos-02",
+    "category": "out_of_scope",
+    "question": "Kolika je stopa PDV-a u Srbiji?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents, which cover the Labor Law, do not contain information about the VAT rate in Serbia."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 563
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 564
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 565
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 566
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 55",
+        "chunk_id": 805
+      }
+    ],
+    "latency_ms": 8409,
+    "tokens": 1227,
+    "failure": null
+  },
+  {
+    "id": "oos-03",
+    "category": "out_of_scope",
+    "question": "Kako se registruje automobil?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents, which pertain to labor law and union registration, do not contain information on vehicle registration."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 49",
+        "chunk_id": 760
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 42",
+        "chunk_id": 703
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 45",
+        "chunk_id": 727
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 53",
+        "chunk_id": 782
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 42",
+        "chunk_id": 704
+      }
+    ],
+    "latency_ms": 2008,
+    "tokens": 973,
+    "failure": null
+  },
+  {
+    "id": "oos-04",
+    "category": "out_of_scope",
+    "question": "Koliko iznosi minimalna cena rada po satu u 2026. godini?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents do not contain the specific value for the minimum wage in 2026."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 565
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 564
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 561
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 563
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 22",
+        "chunk_id": 566
+      }
+    ],
+    "latency_ms": 29069,
+    "tokens": 1350,
+    "failure": null
+  },
+  {
+    "id": "oos-05",
+    "category": "out_of_scope",
+    "question": "Kolika je stopa poreza na dohodak građana na zaradu?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents do not contain information about the specific tax rate."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 38",
+        "chunk_id": 672
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 555
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 20",
+        "chunk_id": 554
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 24",
+        "chunk_id": 579
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 560
+      }
+    ],
+    "latency_ms": 2294,
+    "tokens": 1228,
+    "failure": null
+  },
+  {
+    "id": "oos-06",
+    "category": "out_of_scope",
+    "question": "Koliko dana godišnjeg odmora ima Marko Petrović?",
+    "documents": null,
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents do not contain information regarding Marko Petrović's annual leave."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 402
+      },
+      {
+        "n": 2,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 391
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 508
+      }
+    ],
+    "latency_ms": 9419,
+    "tokens": 855,
+    "failure": null
+  },
+  {
+    "id": "oos-07",
+    "category": "out_of_scope",
+    "question": "Kolika je neto zarada Nikole Ilića?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "Sistem je tačno naveo da dokumenti sadrže samo bruto iznos i da neto zarada nije definisana."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        2
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "U dostavljenim dokumentima se navodi samo bruto zarada Nikole Ilića koja iznosi 145.000,00 dinara, dok podatak o neto zaradi nije naveden [2].",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 3107,
+    "tokens": 742,
+    "failure": null
+  },
+  {
+    "id": "oos-08",
+    "category": "out_of_scope",
+    "question": "Koliki je rok za žalbu na presudu u parničnom postupku?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "Sistem je ispravno utvrdio da dokumenti ne sadrže informaciju o roku za žalbu na presudu u parničnom postupku."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Ne mogao sam da pronađem odgovor u dokumentima.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 768
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 27",
+        "chunk_id": 601
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 47",
+        "chunk_id": 745
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 39",
+        "chunk_id": 679
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 39",
+        "chunk_id": 678
+      }
+    ],
+    "latency_ms": 36456,
+    "tokens": 1348,
+    "failure": null
+  },
+  {
+    "id": "oos-09",
+    "category": "out_of_scope",
+    "question": "Kako se podnosi zahtev za starosnu penziju u PIO fondu?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The provided documents discuss procedures for claims related to the Solidarity Fund in bankruptcy cases, not the procedure for filing a request for an old-age pension with the PIO Fund."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 27",
+        "chunk_id": 598
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 27",
+        "chunk_id": 599
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 28",
+        "chunk_id": 602
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 466
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 54",
+        "chunk_id": 790
+      }
+    ],
+    "latency_ms": 4474,
+    "tokens": 1194,
+    "failure": null
+  },
+  {
+    "id": "oos-10",
+    "category": "out_of_scope",
+    "question": "Koja je adresa stanovanja Nikole Ilića?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "Sistem je tačno naveo da dokumenti ne sadrže traženu informaciju i ispravno je citirao dostupne podatke."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Za Nikolu Ilića u dokumentima piše samo da je iz Beograda, dok adresa stanovanja nije navedena [1].",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      }
+    ],
+    "latency_ms": 10651,
+    "tokens": 779,
+    "failure": null
+  },
+  {
+    "id": "fp-01",
+    "category": "false_premise",
+    "question": "Zašto je Ana Jović dobila otkaz?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents do not contain information regarding the reason for Ana Jović's termination."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 393
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 394
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 386
+      }
+    ],
+    "latency_ms": 1830,
+    "tokens": 654,
+    "failure": null
+  },
+  {
+    "id": "fp-02",
+    "category": "false_premise",
+    "question": "Koliki bonus za prekovremeni rad Nikola Ilić ima po ugovoru?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The system correctly identified that the provided documents do not contain information regarding bonuses for overtime work."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [],
+      "invalid": [],
+      "uncited": true,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Could not find the answer in the documents.",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 33709,
+    "tokens": 711,
+    "failure": null
+  },
+  {
+    "id": "fp-03",
+    "category": "false_premise",
+    "question": "Koji član Zakona o radu daje pravo na 30 dana godišnjeg odmora svim zaposlenima?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": false,
+    "judge": {
+      "correct": false,
+      "grounded": true,
+      "reason": "The system failed to identify that the provided documents contain the information necessary to refute the premise of the question."
+    },
+    "rules": {
+      "passed": false,
+      "missing": [
+        "20"
+      ],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Ne mogao sam pronaći odgovor u dokumentima [1][2][3][4][5].",
+    "reference": "Nijedan: zakon ne daje svima 30 dana, već propisuje najmanje 20 radnih dana godišnjeg odmora. Netačan je odgovor koji prihvati premisu o 30 dana.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 53",
+        "chunk_id": 785
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 510
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      }
+    ],
+    "latency_ms": 2170,
+    "tokens": 1296,
+    "failure": "false_abstention"
+  },
+  {
+    "id": "fp-04",
+    "category": "false_premise",
+    "question": "Pošto zakon dozvoljava probni rad od godinu dana, da li poslodavac može da ugovori probni rad od 10 meseci?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer_expected": true,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "The answer correctly identifies the legal limit for probation and addresses the user's false premise using the provided passage."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": false,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": true
+    },
+    "retrieval": {
+      "hit": true,
+      "recall": 1.0,
+      "rr": 1.0,
+      "ranks": [
+        1
+      ]
+    },
+    "answer": "Zakon ne dozvoljava probni rad od godinu dana, već je propisano da probni rad može da traje najduže šest meseci [1]. Pošto je najduže trajanje probnog rada šest meseci, poslodavac ne može da ugovori probni rad od 10 meseci [1].",
+    "reference": "Ne može: zakon dozvoljava probni rad od najduže šest meseci, a ne godinu dana. Netačan je odgovor koji prihvati premisu.",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 464
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 481
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 465
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 466
+      }
+    ],
+    "latency_ms": 10850,
+    "tokens": 1631,
+    "failure": null
+  },
+  {
+    "id": "fp-05",
+    "category": "false_premise",
+    "question": "Koliko traje zabrana konkurencije iz ugovora Ane Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt"
+    ],
+    "answer_expected": false,
+    "has_rules": true,
+    "passed": true,
+    "judge": {
+      "correct": true,
+      "grounded": true,
+      "reason": "Sistem je ispravno utvrdio da dokumenti ne sadrže informaciju o trajanju zabrane konkurencije."
+    },
+    "rules": {
+      "passed": true,
+      "missing": [],
+      "forbidden": [],
+      "abstained": true,
+      "unsupported_numbers": []
+    },
+    "citations": {
+      "cited": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "invalid": [],
+      "uncited": false,
+      "cites_expected": null
+    },
+    "retrieval": null,
+    "answer": "Ne mogu pronaći odgovor u dokumentima [1][2][3][4][5].",
+    "reference": null,
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 394
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 387
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 393
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      }
+    ],
+    "latency_ms": 2892,
+    "tokens": 683,
+    "failure": null
+  }
+]

@@ -21,58 +21,138 @@ question ─► normalise ─┬─► semantic search (pgvector, cosine similar
 - **Ask about specific documents.** Every search can be limited to chosen documents: tick documents in the UI (or click *Only*), or pass `"documents": [ids]` to `/ask`. With two job contracts uploaded, "Kolika je zarada?" answers for one contract, or compares both when both are selected.
 - **Grounded answers.** The model may only use the retrieved passages, must cite them as `[n]`, must answer in the question's script, and must say so when the answer is not in the documents.
 - **Cost control.** Embeddings are cached in Postgres by content hash, so re-indexing unchanged text costs nothing. Uploading the same file twice is rejected. Requests are paced to stay within free-tier per-minute quotas. Every answer reports token usage and how long search and generation took.
-- **Evaluation.** `scripts/evaluate.py` measures whether search finds the right passage; `scripts/evaluate_answers.py` measures whether the final answers are correct, cite the right passage, and decline out-of-scope questions.
+- **Evaluation.** A 100-question harness (`scripts/harness.py`) scores retrieval, answers and citations with rule-based checks and an LLM judge, and gives each failure a root cause. `scripts/validate_data.py` checks the ingested documents for duplicates, missing fields and inconsistent dates.
 
 ## Evaluation
 
-`eval/questions.jsonl` holds 28 questions about the Serbian Labour Law: 20 everyday questions, 2 in Cyrillic, 3 that name an article number, and 3 the law does not cover. Each in-scope question has a phrase the correct passage must contain and a reference answer.
+The evaluation harness (`scripts/harness.py`) runs a 100-question test set through the whole pipeline. For each question it scores retrieval, the answer and the citations, using both rule-based checks and an LLM judge, and gives every failure one root cause. `scripts/validate_data.py` checks the ingested documents themselves.
 
-### Retrieval: does search find the right passage?
+### Test set
 
-| Mode | Hit@5 | MRR |
+`eval/testset.jsonl` has 100 questions over four documents: the Serbian Labour Law (Cyrillic PDF), two fictional job contracts, and a fictional annex to one of them.
+
+| Category | Cases | What it tests |
 |---|---|---|
-| **Semantic** | **1.00** | **0.98** |
-| Keyword | 0.84 | 0.66 |
-| Hybrid | 0.96 | 0.88 |
+| factual | 40 | One fact from the law |
+| cyrillic | 4 | Question in Cyrillic |
+| article | 6 | Names an article ("Šta propisuje član 62?"), including numbers that appear twice in the PDF |
+| contract | 12 | One contract |
+| comparison | 5 | Both contracts at once |
+| conflict | 7 | Documents disagree: annex vs contract (salary, remote work, leave), contract vs law, a wrong date in the annex |
+| ambiguous | 11 | Vague ("Koliko traje odmor?"), no diacritics, slang, English, or which contract is meant is not said |
+| out_of_scope | 10 | Not in the documents, including near misses (net salary when only gross is given, a home address when only the city is) |
+| false_premise | 5 | The question assumes something false ("Pošto zakon dozvoljava probni rad od godinu dana…") |
 
-*Hit@5:* share of questions where the right passage is among the 5 retrieved. *MRR:* average of 1 / rank of the first right passage (1.00 = always first).
+Each case lists the documents it is asked about (as if ticked in the UI), the phrase(s) the right passage contains, a reference answer (with grading notes where the right answer is "it depends"), and terms the answer must or must not contain. `--check` verifies that every expected phrase really exists in its documents, so a retrieval miss is never a typo in the test set. That check caught one mistake while I was building the set.
 
-What the numbers showed, and what changed because of them:
+### What is scored
 
-- The first run on the real law scored **0.00**: the PDF is Cyrillic and the pipeline only handled Latin. Transliteration fixed it.
-- Footnote asterisks in headings (`Član 111.*`) merged neighbouring articles and broke phrase matching. They are now handled.
-- Keyword search dropped short tokens, including article numbers like "62". It now keeps numbers and looks named articles up directly (keyword Hit@5 0.76 → 0.88).
-- Postgres has no Serbian stemmer, so keyword search missed inflected forms (odmor/odmora). A light Serbian stemmer lifted hybrid from 0.92 to 0.96. Keyword search alone stayed around 0.84–0.88; IDF-weighted (BM25-style) ranking was tried and didn't help.
-- The remaining keyword misses are vocabulary mismatches no word-matching can fix: "odmor **između dva radna dana**" is answered by an article that says "u okviru 24 časa". That is what semantic search is for, so **semantic is the default mode**. Hybrid and keyword stay available in the UI and API.
+- **Retrieval:** does the top-k contain the expected passage(s)? Hit@k, recall and MRR, for all three search modes.
+- **Rule-based checks:** required and forbidden terms (matched across scripts and with or without diacritics), refusal phrasing for unanswerable questions, whether a cited passage holds the expected text, citations to passages that don't exist, and numbers in the answer that appear in no retrieved passage (a cheap hallucination signal).
+- **LLM judge:** a different model (`gemini-3.1-flash-lite`) than the one answering (`gemini-3.5-flash-lite`) decides whether the answer is *correct* against the reference and whether it is *grounded* in the retrieved passages. When the rules and the judge disagree, the report lists the case for a person to look at.
+- **Root cause of each failure:** `missed_retrieval` (right passage not retrieved), `hallucination` (answered an unanswerable question, or stated something not in the passages), `wrong_citation` (right answer, wrong or missing citation), `false_abstention` (said "not found" although the passage was retrieved), `incomplete_answer`.
 
-### Answers: is the final answer right?
+A case passes when the judge says correct and the answer cites the expected passage.
 
-`scripts/evaluate_answers.py` runs the full pipeline for every question and checks:
+### Results
 
-- **Answer accuracy:** an LLM judge compares the answer with the reference answer. The judge is a different model (`gemini-3.1-flash-lite`) than the one answering (`gemini-3.5-flash-lite`), so a model never grades itself.
-- **Citation accuracy:** deterministic. At least one passage the answer cites with `[n]` must contain the expected phrase.
-- **Abstention:** for the 3 out-of-scope questions (speeding fines, VAT, car registration), the system must say it could not find the answer.
+| | Baseline | After fixes |
+|---|---|---|
+| **Overall pass** | **91/100** | **98/100** |
+| Answer accuracy (answerable) | 80/87 (92%) | 85/87 (98%) |
+| Correct refusal (unanswerable) | 12/13 (92%) | 13/13 (100%) |
+| Cites the expected passage | 84/87 (97%) | 87/87 (100%) |
+| Grounded (judge) | 100% | 100% |
+| Rules agree with judge | 89/94 | 93/94 |
+| Retrieval Hit@5 / MRR (semantic) | 1.00 / 0.90 | 1.00 / 0.91 |
 
-| Check | Result |
-|---|---|
-| Answer accuracy | 24/25 (96%) |
-| Citation accuracy | 25/25 (100%) |
-| Abstention (out-of-scope) | 3/3 (100%) |
-| Average time per answer | 2.7 s |
+| Failure category | Baseline | After fixes |
+|---|---|---|
+| missed_retrieval | 0 | 0 |
+| hallucination | 1 | 0 |
+| wrong_citation | 1 | 0 |
+| false_abstention | 3 | 1 |
+| incomplete_answer | 4 | 1 |
 
-The one wrong answer was a summary question ("Šta je uređeno članom 36?"): the answer covered probation and its maximum length but left out the minimum notice period. Per-question results, answers and the judge's reasons are in `eval/answer_results.json`.
+Retrieval in the other modes, after fixes: keyword Hit@5 0.79 (MRR 0.62), hybrid 0.89 (MRR 0.75). Semantic stays the default.
 
-The first run scored 23/25 on citations and found two real problems: the lite model sometimes wrote citations as `[1, 2]` (not parsed by the UI) or none at all, and mixed Cyrillic into Latin answers. The prompt now requires a citation on every sentence, both the UI and the checker accept `[1, 2]`, and Latin questions get their answer converted to Latin in code (Serbian Cyrillic → Latin is exact, so this is guaranteed rather than hoped for).
+By category after fixes, every category passes 100% except article (5/6) and false_premise (4/5). In the baseline, conflict (5/7) and ambiguous (8/11) were the weakest. Full reports: `eval/runs/baseline/report.md` and `eval/runs/final/report.md`; per-question answers and judge reasons are in each folder's `results.json`.
+
+**Retrieval was never the problem:** semantic search found the right passage for all 87 answerable questions in both runs. Every failure happened after retrieval.
+
+### What the failures showed, and what changed
+
+| Baseline failure | Root cause | Fix |
+|---|---|---|
+| "Koliko dana godišnjeg odmora ima Ana Jović?" gave contract (22) and annex (18) side by side without saying which applies | incomplete_answer | Prompt: an annex changes the contract it amends; give its value as the one that applies |
+| Contract-vs-law question, "Kolika je zarada?" over all documents, and a false premise ("which article gives 30 days of leave?") answered "I could not find it in the documents." in English | false_abstention | Prompt: answer per document when the question doesn't say which; correct a wrong premise; refuse only when no passage is relevant, and in the question's language |
+| "Koliko traje probni rad?" over all documents answered only with the law's 6 months | incomplete_answer | Same per-document rule; now names both contracts and the law |
+| "Koja je adresa stanovanja Nikole Ilića?" → "u Beogradu" | hallucination | Prompt: when only part of the answer is there, say what is missing, and never pass off a related fact (a city) as the one asked for (an address) |
+| "Šta je uređeno članom 36?" summarised only part of the article | incomplete_answer | Article lookup now runs in semantic mode too, so a named article is always retrieved whole. **Still fails:** the full article is retrieved, but the summary leaves parts out |
+
+Data validation also found two problems in how the law was ingested (below), and both are fixed: article 147 had been merged into article 146, and asking for an article by number could return a different article with the same number.
+
+**Fixes to the evaluation itself**, kept separate so they aren't counted as system gains:
+- The `wrong_citation` case (law-38) cited article 79, which answers the question more directly than the passage I had marked as expected. Both passages are now accepted.
+- One reference answer (amb-08) asked for more than the question did.
+- Three rule terms were too strict ("ana" doesn't match "Anu"), and the refusal detector didn't know "Ne mogao sam da pronađem". The judge was right every time; `--regrade` re-scores a saved run after a rule change without new LLM calls.
+
+Of the 7 points gained, 5 come from system changes (cf-03, cf-06, amb-05, amb-09, oos-10) and 2 from fixing the evaluation (law-38, amb-08). Without the evaluation fixes the after-fixes score would be 96/100.
+
+**Still failing (2):**
+- fp-03, a false premise: the model still refuses instead of correcting it with the 20-day minimum.
+- art-03: the summary of article 36 leaves out its durations.
+
+Each run is a single pass of a free-tier lite model with temperature 0, so expect a point or two of noise between runs.
+
+### Data validation
 
 ```bash
-docker compose exec api python -m scripts.evaluate_answers eval/questions.jsonl     --document "Zakon o radu.pdf" --judge-model gemini-3.1-flash-lite --out eval/answer_results.json
+docker compose exec api python -m scripts.validate_data --out eval/data_validation.json
 ```
 
-Retrieval evaluation (add `--misses` to list the questions each mode got wrong):
+- **SQL checks** (`scripts/data_checks.sql`, one query per check, 14 in all):
+  - duplicates: files, documents with identical text, near-duplicate documents, repeated chunks;
+  - missing fields: documents without chunks, empty filenames or hashes, empty chunks, tiny chunks, PDF chunks without a page number;
+  - structural problems: gaps in chunk numbering, page numbers going backwards, all-zero embeddings, cached embeddings from another model, upload times in the future.
+- **Python checks:**
+  - search text and stems out of sync with the chunk text;
+  - dates that do not exist (31.02.);
+  - contracts and annexes missing key fields (signing date, start date, parties, PIB, position, salary);
+  - dates in the wrong order (start before signing, annex signed before its contract);
+  - an annex pointing at a contract date that doesn't exist;
+  - one employer appearing with two PIBs;
+  - contract terms outside the Labour Law's limits (leave under 20 days, probation over 6 months, fixed term over 24 months, employee notice outside 15–30 days);
+  - gaps and repeats in a law's article numbering.
+
+The script exits with status 1 on any error, so it can gate CI or a bulk ingest. `tests/test_validate_data.py` plants every kind of SQL problem in a rolled-back transaction to prove each check fires.
+
+Findings on the current index:
+
+| Finding | Severity | What it was | Action |
+|---|---|---|---|
+| `article_gaps`: article 147 never starts a chunk | warning | The PDF heading is `Члан 147. *` (space before the footnote asterisk), which the chunker didn't recognise, so article 147 was merged into 146 | Chunker fixed. The original PDF wasn't available, so `scripts/rechunk.py` rebuilt the document from its stored chunks: 1 chunk became 2, the other 383 came back identical, and only 2 new embeddings were computed. The warning is gone |
+| `repeated_article`: articles 11–13 and 110–119 start two chunks each | warning | The consolidated text ends with transitional articles of the amending laws, which reuse those numbers. "član 110" returned both | Article lookup keeps the law's own article. Regression cases art-05 and art-06 were added. The warning stays, because the data really does contain both |
+| `conflicts_with_law`: annex gives 18 days of annual leave | error | Planted in the fictional annex on purpose | Kept on purpose: test cases cf-03 and cf-04 rely on it |
+| `annex_date_mismatch`: annex amends "the contract of 15.03.2025", the contract is dated 15.03.2026 | error | Planted on purpose | Kept on purpose: test case cf-07 relies on it |
+
+All 14 SQL checks pass on the real data (no duplicates, missing fields or broken numbering).
+
+### Running the evaluation
 
 ```bash
-docker compose exec api python -m scripts.evaluate eval/questions.jsonl --document "Zakon o radu.pdf" --misses
+docker compose exec api python -m scripts.harness eval/testset.jsonl --check            # test set vs index, no LLM calls
+docker compose exec api python -m scripts.harness eval/testset.jsonl --retrieval-only   # all search modes, no chat calls
+docker compose exec api python -m scripts.harness eval/testset.jsonl --judge-model gemini-3.1-flash-lite --out eval/runs/latest
 ```
+
+`--resume` continues after a free-tier quota stop. `--only cf-01 ambiguous` runs only some cases or categories. A full run makes about 200 chat calls, which takes roughly 20–40 minutes on the Gemini free tier. The run behind these numbers needs the annex indexed too: `curl -F "file=@samples/aneks_ugovora_ana_jovic.txt" http://localhost:8000/documents`.
+
+The original smaller evaluation (`eval/questions.jsonl` with `scripts/evaluate.py` and `scripts/evaluate_answers.py`, 28 questions about the law only) still works. These findings from it still hold:
+- Transliteration took retrieval on the Cyrillic PDF from 0.00 to 1.00.
+- Handling footnote asterisks and keeping article numbers in keyword search improved results.
+- A light Serbian stemmer took hybrid Hit@5 from 0.92 to 0.96.
+- Remaining keyword misses are vocabulary mismatches, which is why semantic search is the default.
 
 ## Running it
 
@@ -123,7 +203,7 @@ curl "http://localhost:8000/search?q=probni%20rad&mode=hybrid"
 
 ### Sample documents
 
-`samples/` holds two fictional job contracts (different salary, probation, leave, remote work) for trying per-document questions.
+`samples/` holds two fictional job contracts (different salary, probation, leave, remote work) and an annex that amends one of them, for per-document and conflicting-document questions. The annex contains two deliberate defects (leave below the legal minimum, a wrong contract date) that data validation must catch.
 
 ### Bulk ingest
 
@@ -155,15 +235,15 @@ app/
   rag.py       Prompt construction and answer generation
   db.py        Schema (pgvector, full-text GIN index) and schema checks
   static/      Web UI (single page, no build step)
-scripts/       Bulk ingest, retrieval evaluation, answer evaluation
-eval/          Evaluation questions with reference answers, and the latest answer results
-samples/       Two fictional job contracts
-tests/         Unit tests (chunking, transliteration, stemming, search, rate limiting, page mapping, grading)
+scripts/       Bulk ingest, re-chunking, evaluation harness, data validation (+ data_checks.sql)
+eval/          Test set (testset.jsonl), harness runs (runs/), data-validation findings, original eval
+samples/       Two fictional job contracts and an annex to one of them
+tests/         Unit tests (chunking, transliteration, stemming, search, rate limiting, page mapping, grading, harness, data checks)
 ```
 
 ## Roadmap
 
 - Cross-encoder re-ranking of retrieved candidates
-- A larger evaluation set, including questions spanning several articles
+- Questions spanning several articles; repeated runs to measure judge and model variance
 - Streaming responses
 - Contract-specific extraction (parties, salary, dates) for structured comparisons
