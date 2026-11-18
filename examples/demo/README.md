@@ -15,7 +15,9 @@ Answer model `gemini-3.5-flash-lite`, temperature 0, top 5 passages, semantic se
 | cf-04 | Contract checked against the law | Da li je godišnji odmor od 18 radnih dana iz aneksa ugovora Ane Jović u skladu sa Zakonom o radu? | Godišnji odmor od 18 radnih dana iz aneksa ugovora Ane Jović nije u skladu sa Zakonom o radu, jer zakon propisuje da zaposleni ima pravo na godišnji odmor u trajanju od najmanje 20 radnih dana [1][2]. |
 | fp-04 | Corrects a false premise | Pošto zakon dozvoljava probni rad od godinu dana, da li poslodavac može da ugovori probni rad od 10 meseci? | Zakon ne dozvoljava probni rad od godinu dana, već je propisano da probni rad može da traje najduže šest meseci [1]. Pošto je najduže trajanje probnog rada šest meseci, poslodavac ne može da ugovori probni rad od 10 meseci [1]. |
 | oos-07 | Says what is missing instead of guessing | Kolika je neto zarada Nikole Ilića? | U dostavljenim dokumentima se navodi samo bruto zarada Nikole Ilića koja iznosi 145.000,00 dinara, dok podatak o neto zaradi nije naveden [2]. |
-| oos-01 | Refuses outside the documents | Koja je kazna za prebrzu vožnju? | Ne mogao sam da pronađem odgovor u dokumentima [1][2][3][4][5]. |
+| oos-01 | Refuses outside the documents | Koja je kazna za prebrzu vožnju? | Ne mogao sam da pronađem odgovor u dokumentima [1][2][3][4][5].¹ |
+
+¹ The app now replaces an answer that is only a refusal with one fixed, grammatical sentence and no citations: *Nisam pronašao odgovor u dokumentima.* (Cyrillic: *Нисам пронашао одговор у документима.*, English: *I could not find the answer in the documents.*). The oos-01 row shows the raw model output from the eval run, before that fix.
 
 `amb-05` in `answers.json` shows a vague question ("Kolika je zarada?") over all documents, answered per document and per person.
 

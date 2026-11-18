@@ -15,8 +15,9 @@ Each passage is labelled with its document. When passages come from several docu
 - If a contract gives an employee less than the law requires, say so.
 If the question assumes something the passages contradict, correct it using the passages.
 If the passages answer only part of the question, give that part and say what is missing. Never present a related fact (a city) as the requested one (an address).
-Only if no passage is relevant, say that you could not find the answer in the documents. Do not guess.
-Answer in the same language and script (Latin or Cyrillic) as the question, even if the passages use the other script; this includes saying that you could not find the answer."""
+Only if no passage is relevant, do not guess and reply with exactly one sentence and no citations:
+"Nisam pronašao odgovor u dokumentima." for a Serbian Latin question, "Нисам пронашао одговор у документима." for a Serbian Cyrillic question, or "I could not find the answer in the documents." for an English question.
+Answer in the same language and script (Latin or Cyrillic) as the question, even if the passages use the other script."""
 
 CYRILLIC = re.compile(r"[Ѐ-ӿ]")
 CITATION = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
@@ -26,7 +27,7 @@ CITATION = re.compile(r"\[(\d+(?:\s*,\s*\d+)*)\]")
 # a caller routing on `answered` should send those to a person.
 _FOLD = str.maketrans({"č": "c", "ć": "c", "š": "s", "ž": "z", "đ": "dj"})
 REFUSAL = re.compile(
-    r"(nisam|nismo|ne mogu|ne mogao|ne mogla|ne mozemo|nije moguce)\b.{0,40}\b(pronac|pronas|nac|nas|naci|da odgovor|pronadj)"
+    r"(nisam|nismo|ne mogu|ne mogao|ne mogla|ne mozemo|nije moguce)\b.{0,40}\b(pronac|pronas|nac|nas|naci|nadj|da odgovor|pronadj)"
     r"|(nije|nisu)\s+(pronadjen|naveden|navedeno|navedena|pomenut|sadrzan)"
     r"|(dokument|kontekst|odlom|pasus|tekst|ugovor|zakon|aneks)\w*\b.{0,60}\b(ne sadrz|ne navod|ne pominj|ne spominj|ne propisuj|ne uredjuj|ne regulis|ne daje informac|nema (podat|informac|odredb))"
     r"|nema (podataka|informacija|odredb)"
@@ -44,6 +45,18 @@ _ENGLISH_WORDS = re.compile(
 )
 REFUSAL_SR_LATIN = "Nisam pronašao odgovor u dokumentima."
 REFUSAL_SR_CYRILLIC = "Нисам пронашао одговор у документима."
+REFUSAL_EN = "I could not find the answer in the documents."
+
+# A whole answer that is nothing but "could not find it", in any wording. Small models write
+# ungrammatical Serbian here ("Ne mogao sam da pronađem odgovor u dokumentima [1][2][3].") and cite
+# passages they just said were irrelevant. Such an answer carries no facts, so it is replaced with the
+# fixed sentence. Partial answers ("only the gross salary is given") never match: they must start with
+# the refusal and contain no digits.
+_PURE_REFUSAL = re.compile(
+    r"^(ja )?(ne mogao|ne mogla|nisam mogao|nisam mogla|nisam uspeo|nisam uspela|ne mogu|nisam|nismo"
+    r"|i could not|i couldn't|i cannot|i can't|could not|couldn't|cannot|can't)\b"
+    r"[^.!?\d]{0,80}\b(pronac|pronas|pronadj|naci|nadj|find)[^.!?\d]{0,80}[.!]?$"
+)
 
 
 def is_english(question: str) -> bool:
@@ -51,11 +64,29 @@ def is_english(question: str) -> bool:
     return not CYRILLIC.search(question) and len(_ENGLISH_WORDS.findall(question)) >= 2
 
 
+def _fixed_refusal(question: str) -> str:
+    if is_english(question):
+        return REFUSAL_EN
+    return REFUSAL_SR_CYRILLIC if CYRILLIC.search(question) else REFUSAL_SR_LATIN
+
+
+def is_pure_refusal(answer: str) -> bool:
+    """The whole answer is one "could not find it" sentence (citations ignored), with no facts in it."""
+    text = " ".join(CITATION.sub("", to_latin(answer)).lower().split()).translate(_FOLD).strip()
+    return bool(_PURE_REFUSAL.match(text)) and is_refusal(answer)
+
+
 def localize_refusal(question: str, answer: str) -> str:
-    """Replace an English refusal to a Serbian question with the Serbian one, in the question's script."""
+    """Normalise refusals to one fixed, grammatical sentence in the question's language and script.
+
+    An answer that is only a refusal ("Ne mogao sam da pronađem odgovor [1][2].") becomes the fixed
+    sentence without citations. An English refusal to a Serbian question becomes the Serbian one.
+    Answers with facts in them, including partial answers, are left alone."""
+    if is_pure_refusal(answer):
+        return _fixed_refusal(question)
     if is_english(question) or not _ENGLISH_REFUSAL.search(answer) or not is_refusal(answer):
         return answer
-    return REFUSAL_SR_CYRILLIC if CYRILLIC.search(question) else REFUSAL_SR_LATIN
+    return _fixed_refusal(question)
 
 
 def cited_numbers(answer: str) -> set[int]:
