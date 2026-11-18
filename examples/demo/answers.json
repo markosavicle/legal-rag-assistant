@@ -1,0 +1,363 @@
+[
+  {
+    "id": "law-01",
+    "category": "factual",
+    "question": "Koliko najmanje traje godišnji odmor?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer": "Godišnji odmor traje najmanje 20 radnih dana [1].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 15",
+        "chunk_id": 513
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 505
+      }
+    ],
+    "latency_ms": 1432,
+    "tokens": 1541,
+    "judge": "The answer accurately reflects the legal minimum of 20 working days as stated in passage [1].",
+    "passed": true
+  },
+  {
+    "id": "cyr-01",
+    "category": "cyrillic",
+    "question": "Колико по правилу траје радна недеља?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer": "Радна недеља, по правилу, траје пет радних дана [1].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 490
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 504
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 17",
+        "chunk_id": 529
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 10",
+        "chunk_id": 486
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 11",
+        "chunk_id": 492
+      }
+    ],
+    "latency_ms": 10717,
+    "tokens": 1238,
+    "judge": "The answer accurately reflects the information provided in passage [1] and matches the reference answer.",
+    "passed": true
+  },
+  {
+    "id": "cmp-01",
+    "category": "comparison",
+    "question": "Ko ima duži probni rad, Ana Jović ili Nikola Ilić?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer": "Za ugovor o radu Ane Jović probni rad traje tri meseca [4]. Za ugovor o radu Nikole Ilića probni rad traje šest meseci [3]. Nikola Ilić ima duži probni rad [3][4].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 399
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 388
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 12322,
+    "tokens": 835,
+    "judge": "The answer correctly identifies the durations for both individuals based on the provided passages and correctly concludes who has the longer probation period.",
+    "passed": true
+  },
+  {
+    "id": "cf-03",
+    "category": "conflict",
+    "question": "Koliko dana godišnjeg odmora ima Ana Jović?",
+    "documents": [
+      "ugovor_o_radu_ana_jovic.txt",
+      "aneks_ugovora_ana_jovic.txt"
+    ],
+    "answer": "U ugovoru o radu piše da zaposlena ima pravo na godišnji odmor u trajanju od 22 radna dana u kalendarskoj godini [1]. Međutim, aneks ugovora menja ugovor koji aneksira, pa važi vrednost iz aneksa prema kojoj zaposlena ima pravo na godišnji odmor u trajanju od 18 radnih dana u kalendarskoj godini [2].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 391
+      },
+      {
+        "n": 2,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      },
+      {
+        "n": 3,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 385
+      },
+      {
+        "n": 5,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 410
+      }
+    ],
+    "latency_ms": 18189,
+    "tokens": 842,
+    "judge": "The system correctly identified the updated number of vacation days from the annex and provided proper citations for both the original contract and the annex.",
+    "passed": true
+  },
+  {
+    "id": "cf-04",
+    "category": "conflict",
+    "question": "Da li je godišnji odmor od 18 radnih dana iz aneksa ugovora Ane Jović u skladu sa Zakonom o radu?",
+    "documents": [
+      "aneks_ugovora_ana_jovic.txt",
+      "Zakon o radu.pdf"
+    ],
+    "answer": "Godišnji odmor od 18 radnih dana iz aneksa ugovora Ane Jović nije u skladu sa Zakonom o radu, jer zakon propisuje da zaposleni ima pravo na godišnji odmor u trajanju od najmanje 20 radnih dana [1][2].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 411
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 507
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 13",
+        "chunk_id": 506
+      },
+      {
+        "n": 4,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 407
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 14",
+        "chunk_id": 511
+      }
+    ],
+    "latency_ms": 12656,
+    "tokens": 1289,
+    "judge": "The answer correctly identifies that 18 days is below the legal minimum of 20 days and cites the appropriate passages.",
+    "passed": true
+  },
+  {
+    "id": "amb-05",
+    "category": "ambiguous",
+    "question": "Kolika je zarada?",
+    "documents": null,
+    "answer": "Za Nikolu Ilića (ugovor_o_radu_nikola_ilic.txt), osnovna mesečna zarada iznosi 145.000,00 dinara bruto [1].\n\nZa Anu Jović (ugovor_o_radu_ana_jovic.txt i aneks_ugovora_ana_jovic.txt), u ugovoru je navedena osnovna mesečna zarada od 180.000,00 dinara bruto [3], ali aneks menja tu vrednost tako da počev od 01.09.2026. godine osnovna mesečna zarada iznosi 205.000,00 dinara bruto [4].\n\nPrema Zakonu o radu (Zakon o radu.pdf), zarada za obavljeni rad i vreme provedeno na radu sastoji se od osnovne zarade, dela zarade za radni učinak i uvećane zarade [2].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 555
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_ana_jovic.txt",
+        "chunk_id": 390
+      },
+      {
+        "n": 4,
+        "source": "aneks_ugovora_ana_jovic.txt",
+        "chunk_id": 409
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 21",
+        "chunk_id": 559
+      }
+    ],
+    "latency_ms": 1010,
+    "tokens": 910,
+    "judge": "The system correctly identified all relevant salary details for both individuals and provided accurate citations for every claim.",
+    "passed": true
+  },
+  {
+    "id": "oos-07",
+    "category": "out_of_scope",
+    "question": "Kolika je neto zarada Nikole Ilića?",
+    "documents": [
+      "ugovor_o_radu_nikola_ilic.txt"
+    ],
+    "answer": "U dostavljenim dokumentima se navodi samo bruto zarada Nikole Ilića koja iznosi 145.000,00 dinara, dok podatak o neto zaradi nije naveden [2].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 396
+      },
+      {
+        "n": 2,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 401
+      },
+      {
+        "n": 3,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 398
+      },
+      {
+        "n": 4,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 400
+      },
+      {
+        "n": 5,
+        "source": "ugovor_o_radu_nikola_ilic.txt",
+        "chunk_id": 397
+      }
+    ],
+    "latency_ms": 3107,
+    "tokens": 742,
+    "judge": "Sistem je tačno naveo da dokumenti sadrže samo bruto iznos i da neto zarada nije definisana.",
+    "passed": true
+  },
+  {
+    "id": "fp-04",
+    "category": "false_premise",
+    "question": "Pošto zakon dozvoljava probni rad od godinu dana, da li poslodavac može da ugovori probni rad od 10 meseci?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer": "Zakon ne dozvoljava probni rad od godinu dana, već je propisano da probni rad može da traje najduže šest meseci [1]. Pošto je najduže trajanje probnog rada šest meseci, poslodavac ne može da ugovori probni rad od 10 meseci [1].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 463
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 464
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 9",
+        "chunk_id": 481
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 465
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 7",
+        "chunk_id": 466
+      }
+    ],
+    "latency_ms": 10850,
+    "tokens": 1631,
+    "judge": "The answer correctly identifies the legal limit for probation and addresses the user's false premise using the provided passage.",
+    "passed": true
+  },
+  {
+    "id": "oos-01",
+    "category": "out_of_scope",
+    "question": "Koja je kazna za prebrzu vožnju?",
+    "documents": [
+      "Zakon o radu.pdf"
+    ],
+    "answer": "Ne mogao sam da pronađem odgovor u dokumentima [1][2][3][4][5].",
+    "sources": [
+      {
+        "n": 1,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 775
+      },
+      {
+        "n": 2,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 777
+      },
+      {
+        "n": 3,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 771
+      },
+      {
+        "n": 4,
+        "source": "Zakon o radu.pdf, page 51",
+        "chunk_id": 772
+      },
+      {
+        "n": 5,
+        "source": "Zakon o radu.pdf, page 52",
+        "chunk_id": 778
+      }
+    ],
+    "latency_ms": 4521,
+    "tokens": 1784,
+    "judge": "Sistem je ispravno utvrdio da dokumenti koji se odnose na Zakon o radu ne sadrže informacije o kaznama za prebrzu vožnju.",
+    "passed": true
+  }
+]

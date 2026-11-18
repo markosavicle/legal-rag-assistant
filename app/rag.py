@@ -34,6 +34,30 @@ REFUSAL = re.compile(
 )
 
 
+# The prompt asks for refusals in the question's language, but small models often fall back to
+# English ("Could not find the answer in the documents.") for a Serbian question. A refusal carries
+# no facts, so it is safe to replace it with a fixed Serbian sentence in the question's script.
+_ENGLISH_REFUSAL = re.compile(r"\b(could not|couldn't|cannot|can't) find\b|\bno information\b", re.IGNORECASE)
+_ENGLISH_WORDS = re.compile(
+    r"\b(what|which|who|whom|whose|when|where|why|how|is|are|does|did|can|could|should|the|of)\b",
+    re.IGNORECASE,
+)
+REFUSAL_SR_LATIN = "Nisam pronašao odgovor u dokumentima."
+REFUSAL_SR_CYRILLIC = "Нисам пронашао одговор у документима."
+
+
+def is_english(question: str) -> bool:
+    """Rough check: a Latin question with at least two common English function words."""
+    return not CYRILLIC.search(question) and len(_ENGLISH_WORDS.findall(question)) >= 2
+
+
+def localize_refusal(question: str, answer: str) -> str:
+    """Replace an English refusal to a Serbian question with the Serbian one, in the question's script."""
+    if is_english(question) or not _ENGLISH_REFUSAL.search(answer) or not is_refusal(answer):
+        return answer
+    return REFUSAL_SR_CYRILLIC if CYRILLIC.search(question) else REFUSAL_SR_LATIN
+
+
 def cited_numbers(answer: str) -> set[int]:
     """Passage numbers cited as [1], [1][3] or [1, 3]."""
     return {int(n) for group in CITATION.findall(answer) for n in re.findall(r"\d+", group)}
@@ -85,6 +109,7 @@ def answer(conn, question: str, k: int, mode: str = "vector", documents: list[in
     else:
         text, usage = llm.chat(build_messages(question, hits))
         text = match_script(question, text)
+    text = localize_refusal(question, text)
     finished = time.perf_counter()
     answered, citations = answer_status(text, len(hits))
 
