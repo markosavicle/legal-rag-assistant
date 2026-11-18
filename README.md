@@ -1,8 +1,35 @@
 # Legal RAG Assistant
 
+[![Tests](https://github.com/markosavicle/legal-rag-assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/markosavicle/legal-rag-assistant/actions/workflows/tests.yml)
+[![n8n node](https://github.com/markosavicle/legal-rag-assistant/actions/workflows/n8n-node.yml/badge.svg)](https://github.com/markosavicle/legal-rag-assistant/actions/workflows/n8n-node.yml)
+[![npm](https://img.shields.io/npm/v/n8n-nodes-legal-rag)](https://www.npmjs.com/package/n8n-nodes-legal-rag)
+[![npm downloads](https://img.shields.io/npm/dm/n8n-nodes-legal-rag)](https://www.npmjs.com/package/n8n-nodes-legal-rag)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 A question-answering app over legal documents (laws, contracts, regulations) built on Retrieval-Augmented Generation. Upload PDF, DOCX or TXT files, ask questions in Serbian (Latin or Cyrillic) or English, and get answers grounded in the documents with numbered citations to the source passages.
 
 **Stack:** Python, FastAPI, PostgreSQL + pgvector, any OpenAI-compatible LLM API (Google Gemini, OpenAI, Azure OpenAI, Ollama), Docker, n8n (custom TypeScript node)
+
+## At a glance
+
+**Problem.** Legal, HR and accounting teams spend hours looking up answers in laws and contracts. Generic chatbots invent article numbers, can't read official Serbian Cyrillic PDFs, and don't say when the answer isn't there.
+
+**Solution.** A self-hosted assistant that indexes your laws and contracts, answers in Serbian (Latin or Cyrillic) or English, cites the exact passage for every sentence, and says so when the documents don't answer the question. A published n8n node puts it into email, Slack and form workflows, with a person approving every outgoing answer.
+
+**Results** on a 100-question test set over the Labour Law and fictional contracts ([full report](eval/runs/final/report.md)):
+
+| Measure | Result |
+|---|---|
+| Correct answer that cites the right passage | 98/100 (91 before the fixes described below) |
+| Right passage among the top 5 retrieved | 87/87 answerable questions |
+| Hallucinated answers (judge) | 0 |
+| Correct "not in the documents" for unanswerable questions | 13/13 |
+| Retrieval on the Cyrillic PDF, before → after transliteration | Hit@5 0.00 → 1.00 |
+| Average time per answer (free-tier Gemini lite model) | 10.9 s |
+
+These are test-set numbers from one run, not production measurements. See [real answers from that run](examples/demo/) for what the output looks like.
+
+> **Ukratko (SR):** Privatni AI asistent za zakone i ugovore koji radi na vašem serveru. Odgovara na srpskom (latinica ili ćirilica) ili engleskom, uz svaki odgovor navodi tačan član ili pasus, i kaže kad odgovor nije u dokumentima. Na testu od 100 pitanja: 98 tačnih odgovora sa ispravnim citatom i nijedan izmišljen odgovor. Povezuje se sa n8n-om (objavljen community node), pa pitanje iz mejla postaje nacrt odgovora koji čovek odobri u Slacku.
 
 ## How it works
 
@@ -104,6 +131,8 @@ Of the 7 points gained, 5 come from system changes (cf-03, cf-06, amb-05, amb-09
 - art-03: the summary of article 36 leaves out its durations.
 
 Each run is a single pass of a free-tier lite model with temperature 0, so expect a point or two of noise between runs.
+
+**Refusal language.** In the final run, 8 of the 14 refusals to Serbian questions came back in English ("Could not find the answer in the documents."), despite the prompt. Since then the API replaces an English refusal to a Serbian question with a fixed Serbian sentence in the question's script (`localize_refusal` in `app/rag.py`). A refusal carries no facts, so the scores above are unaffected.
 
 ### Data validation
 
@@ -262,7 +291,7 @@ curl "http://localhost:8000/search?q=probni%20rad&mode=hybrid"
 
 ### Sample documents
 
-`samples/` holds two fictional job contracts (different salary, probation, leave, remote work) and an annex that amends one of them, for per-document and conflicting-document questions. The annex contains two deliberate defects (leave below the legal minimum, a wrong contract date) that data validation must catch.
+`samples/` holds two fictional job contracts (different salary, probation, leave, remote work) and an annex that amends one of them, for per-document and conflicting-document questions. The annex contains two deliberate defects (leave below the legal minimum, a wrong contract date) that data validation must catch. All people, companies and PIB numbers in them are made up; the Labour Law is the official public text. [`examples/demo/`](examples/demo/) shows real answers over these documents and a script that reproduces them.
 
 ### Bulk ingest
 
@@ -296,12 +325,13 @@ app/
   static/      Web UI (single page, no build step)
 scripts/       Bulk ingest, re-chunking, evaluation harness, data validation (+ data_checks.sql)
 eval/          Test set (testset.jsonl), harness runs (runs/), data-validation findings, original eval
+examples/demo/ Real answers from the final run (answers.json) and a script that reproduces them
 samples/       Two fictional job contracts and an annex to one of them
 tests/         Unit tests (chunking, transliteration, stemming, search, rate limiting, page mapping, grading, harness, data checks, API key)
 n8n-nodes-legal-rag/  n8n community node (TypeScript), its tests and example workflows
 deploy/n8n/    Self-hosted n8n (Docker Compose, Postgres 17)
 docker-compose.server.yml  Server override: private database, restart policy, shared proxy network
-.github/       CI and npm publishing for the n8n node
+.github/       CI (Python tests, n8n node lint/build/test) and npm publishing for the node
 ```
 
 ## Roadmap
